@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="OMp-0Q-joa" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evk-IO-BY1">
+                                <rect key="frame" x="307" y="94" width="87" height="30"/>
+                                <state key="normal" title="Record Start"/>
+                                <connections>
+                                    <action selector="didTapRecordButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WlH-p6-nE5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OMp-0Q-joa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="6io-3g-wOS"/>
+                            <constraint firstItem="vSZ-Dv-hX4" firstAttribute="trailing" secondItem="Evk-IO-BY1" secondAttribute="trailing" constant="20" id="QR0-Ad-AQG"/>
+                            <constraint firstItem="Evk-IO-BY1" firstAttribute="top" secondItem="vSZ-Dv-hX4" secondAttribute="top" constant="50" id="T7V-BG-ue4"/>
+                            <constraint firstAttribute="trailing" secondItem="OMp-0Q-joa" secondAttribute="trailing" id="hlG-3R-B3J"/>
+                            <constraint firstAttribute="bottom" secondItem="OMp-0Q-joa" secondAttribute="bottom" id="qdF-CF-yBO"/>
+                            <constraint firstItem="OMp-0Q-joa" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="xpm-3e-Yvp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vSZ-Dv-hX4"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="OMp-0Q-joa" id="FZu-0s-gXM"/>
+                        <outlet property="recordButton" destination="Evk-IO-BY1" id="OXv-16-X9v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="133"/>
+        </scene>
+    </scenes>
+</document>

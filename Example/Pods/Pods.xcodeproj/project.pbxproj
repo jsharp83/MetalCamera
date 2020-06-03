@@ -1,0 +1,858 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0780396E248B227B0018A764 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0780396D248B227B0018A764 /* extensions.swift */; };
+		07803973248B3BB90018A764 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803972248B3BB90018A764 /* Texture.swift */; };
+		07803976248B3BE60018A764 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803975248B3BE60018A764 /* Rotation.swift */; };
+		0780397A248B40D90018A764 /* ImageCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803979248B40D90018A764 /* ImageCompositor.swift */; };
+		0780397E248B6B520018A764 /* MetalVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0780397D248B6B520018A764 /* MetalVideoLoader.swift */; };
+		07803988248B8CBA0018A764 /* Gray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803987248B8CBA0018A764 /* Gray.swift */; };
+		0780398A248B90350018A764 /* MetalVideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803989248B90350018A764 /* MetalVideoWriter.swift */; };
+		0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */; };
+		34C2EA3A25465FA97706495EDE219955 /* Pods-MetalCamera_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46553E9EB0DD3849C34221F8C333E8CF /* OperationChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2C0E3E5A36A04B206DA52976D8D0A0 /* OperationChain.swift */; };
+		6C9AC97EE41D758AE70401D2BE19D21A /* MetalVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA551FEF35C58FEFF7DC6221E97631D /* MetalVideoView.swift */; };
+		71640E4FD05B8B0B92AA95FA2160E406 /* MetalCamera-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A42D0E7D18903DCD5C1AD2421DC54F7 /* MetalCamera-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72CE3FC14A92CEE96EDA6DECDADCD5E6 /* Pods-MetalCamera_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36734F67838A6594B821455BA58AD6 /* Pods-MetalCamera_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8573B0E5C676C9E69B52B863B3008985 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4902C0E432A4C566375ADF067EFBD /* Shaders.metal */; };
+		8A8293278F18AE5D478908B7C1676FB9 /* MetalCamera-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 352D081B5D2170DB7C43AEB74597D967 /* MetalCamera-dummy.m */; };
+		9177C94AD45F40FB923484EAD9EE9427 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		93BB562D54F68A9B50D6A62426DB6BA0 /* MetalRenderingDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80163F97B976ED08F2496A1C428B4BE /* MetalRenderingDevice.swift */; };
+		AC36A4D9423F8FBE0161B77023B563C6 /* MetalCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCC0EF000972150433B7A5159D155B /* MetalCamera.swift */; };
+		C79CD3D8A31474BA1354A5CD8343E08E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		CEC69473AF4E82C84D0E685C2BCE64B8 /* Pods-MetalCamera_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAA8A16A1BC44D126E55BB0344AB854 /* Pods-MetalCamera_Tests-dummy.m */; };
+		D3001EB0C134E40FD0E79890BD7F2266 /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D72C3BED6D67B3BC3ED32B95062DB71 /* Maths.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CC5F9BF2A4B95902AFE5F92437EF204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA67A817A0DFD7EB1A0970DE72266E7E;
+			remoteInfo = "Pods-MetalCamera_Example";
+		};
+		EB5923503F3FDD6D006202C760AC37F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AA1D4317651EC0E70D4EA12A9EE161B;
+			remoteInfo = MetalCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0780396D248B227B0018A764 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		07803972248B3BB90018A764 /* Texture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Texture.swift; path = MetalCamera/Classes/Texture.swift; sourceTree = "<group>"; };
+		07803975248B3BE60018A764 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
+		07803979248B40D90018A764 /* ImageCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompositor.swift; sourceTree = "<group>"; };
+		0780397D248B6B520018A764 /* MetalVideoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetalVideoLoader.swift; path = MetalCamera/Classes/MetalVideoLoader.swift; sourceTree = "<group>"; };
+		07803987248B8CBA0018A764 /* Gray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
+		07803989248B90350018A764 /* MetalVideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetalVideoWriter.swift; path = MetalCamera/Classes/MetalVideoWriter.swift; sourceTree = "<group>"; };
+		0F000624AEC67D57533D3736857ED263 /* MetalCamera-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetalCamera-Info.plist"; sourceTree = "<group>"; };
+		2DF4902C0E432A4C566375ADF067EFBD /* Shaders.metal */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		352D081B5D2170DB7C43AEB74597D967 /* MetalCamera-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetalCamera-dummy.m"; sourceTree = "<group>"; };
+		37806EB54A9317909665FDBF4AD6F7EC /* MetalCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetalCamera.release.xcconfig; sourceTree = "<group>"; };
+		3D72C3BED6D67B3BC3ED32B95062DB71 /* Maths.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
+		3F97CC833243241A2504910330808958 /* MetalCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetalCamera.debug.xcconfig; sourceTree = "<group>"; };
+		484AE181F5E9F85D9DB74787F470B455 /* MetalCamera.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MetalCamera.modulemap; sourceTree = "<group>"; };
+		48563F984110514C804A8AC1BDDEFE88 /* Pods-MetalCamera_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A42D0E7D18903DCD5C1AD2421DC54F7 /* MetalCamera-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetalCamera-umbrella.h"; sourceTree = "<group>"; };
+		6E5568AF6DF48863DFB2C27B6D618166 /* Pods_MetalCamera_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalCamera_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CA551FEF35C58FEFF7DC6221E97631D /* MetalVideoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalVideoView.swift; path = MetalCamera/Classes/MetalVideoView.swift; sourceTree = "<group>"; };
+		9181D4ED02A641EA18DB3336C250E0E1 /* MetalCamera.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MetalCamera.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		91E190A0E166BAE9EA0201A36276270E /* Pods-MetalCamera_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetalCamera_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetalCamera_Example-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AC26A59A55548D0C31F9E34EA58E30DE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AE083D64682B656A1793E03F455AC0BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B1342D1720E1E3D0BAF3B9E68417BE16 /* Pods-MetalCamera_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetalCamera_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B3647072B663638059B992B6CD2F3C32 /* Pods-MetalCamera_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Example-Info.plist"; sourceTree = "<group>"; };
+		B66CFDF7907AACE1E877445B20A10D8D /* Pods-MetalCamera_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Tests-Info.plist"; sourceTree = "<group>"; };
+		B72D39317FDB37904CB1C77784044BF7 /* Pods-MetalCamera_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Example.release.xcconfig"; sourceTree = "<group>"; };
+		B8E03A4200EAF45C9916B1FE2728C631 /* Pods-MetalCamera_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BB2C0E3E5A36A04B206DA52976D8D0A0 /* OperationChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationChain.swift; path = MetalCamera/Classes/OperationChain.swift; sourceTree = "<group>"; };
+		BBAA8A16A1BC44D126E55BB0344AB854 /* Pods-MetalCamera_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetalCamera_Tests-dummy.m"; sourceTree = "<group>"; };
+		BD36734F67838A6594B821455BA58AD6 /* Pods-MetalCamera_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetalCamera_Example-umbrella.h"; sourceTree = "<group>"; };
+		BDB1BC561E2D4234DB24BC5464D4A53C /* Pods-MetalCamera_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetalCamera_Example.modulemap"; sourceTree = "<group>"; };
+		BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetalCamera_Tests-umbrella.h"; sourceTree = "<group>"; };
+		C0133802E57D3451808D9C8FCFBC0606 /* Pods-MetalCamera_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C76D26C83AD07E97532CD776C20B60F8 /* Pods_MetalCamera_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalCamera_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF93287442D07DEE4D6BDC98A4F7858D /* Pods-MetalCamera_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetalCamera_Tests.modulemap"; sourceTree = "<group>"; };
+		E0BCC0EF000972150433B7A5159D155B /* MetalCamera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalCamera.swift; path = MetalCamera/Classes/MetalCamera.swift; sourceTree = "<group>"; };
+		E2A7FF22E70561E63CF3A515FA369F87 /* MetalCamera-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetalCamera-prefix.pch"; sourceTree = "<group>"; };
+		E3EB763E6F2E8445CEBDB1D7823EF0B7 /* Pods-MetalCamera_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E91314DD68A9978F18990F0B4743C7B6 /* Pods-MetalCamera_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetalCamera_Example-frameworks.sh"; sourceTree = "<group>"; };
+		EEE223A4A7CE12AE93D0B04555E7C25B /* Pods-MetalCamera_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F80163F97B976ED08F2496A1C428B4BE /* MetalRenderingDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalRenderingDevice.swift; path = MetalCamera/Classes/MetalRenderingDevice.swift; sourceTree = "<group>"; };
+		FF7A8B92BF65A2172B89781FF2580ED1 /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21B582BC7B39B596C0F572397111FA7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9177C94AD45F40FB923484EAD9EE9427 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5297C1ADBE80BC78E1A32D83362D9DA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C79CD3D8A31474BA1354A5CD8343E08E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D309FA300A5F48AA9B20088CA83BE29D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0780396C248B227B0018A764 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3D72C3BED6D67B3BC3ED32B95062DB71 /* Maths.swift */,
+				0780396D248B227B0018A764 /* extensions.swift */,
+			);
+			name = utils;
+			path = MetalCamera/Classes/utils;
+			sourceTree = "<group>";
+		};
+		07803974248B3BE60018A764 /* operations */ = {
+			isa = PBXGroup;
+			children = (
+				07803975248B3BE60018A764 /* Rotation.swift */,
+				07803979248B40D90018A764 /* ImageCompositor.swift */,
+				07803987248B8CBA0018A764 /* Gray.swift */,
+			);
+			name = operations;
+			path = MetalCamera/Classes/operations;
+			sourceTree = "<group>";
+		};
+		27D545D86E34BA1C43F4D35FA88DE552 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4CAF3971AF7E9E6AF5D73FA3EA7535C /* MetalCamera */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		65750C678B76A87D5BEB75B016F270F6 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AC26A59A55548D0C31F9E34EA58E30DE /* LICENSE */,
+				9181D4ED02A641EA18DB3336C250E0E1 /* MetalCamera.podspec */,
+				AE083D64682B656A1793E03F455AC0BB /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		7282206FF8DE8A104C05586CE56C0396 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				2DF4902C0E432A4C566375ADF067EFBD /* Shaders.metal */,
+			);
+			name = shader;
+			path = MetalCamera/Classes/shader;
+			sourceTree = "<group>";
+		};
+		730C42DDFF0770C3CA7C4028AE85D73D /* Pods-MetalCamera_Example */ = {
+			isa = PBXGroup;
+			children = (
+				BDB1BC561E2D4234DB24BC5464D4A53C /* Pods-MetalCamera_Example.modulemap */,
+				91E190A0E166BAE9EA0201A36276270E /* Pods-MetalCamera_Example-acknowledgements.markdown */,
+				E3EB763E6F2E8445CEBDB1D7823EF0B7 /* Pods-MetalCamera_Example-acknowledgements.plist */,
+				9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */,
+				E91314DD68A9978F18990F0B4743C7B6 /* Pods-MetalCamera_Example-frameworks.sh */,
+				B3647072B663638059B992B6CD2F3C32 /* Pods-MetalCamera_Example-Info.plist */,
+				BD36734F67838A6594B821455BA58AD6 /* Pods-MetalCamera_Example-umbrella.h */,
+				EEE223A4A7CE12AE93D0B04555E7C25B /* Pods-MetalCamera_Example.debug.xcconfig */,
+				B72D39317FDB37904CB1C77784044BF7 /* Pods-MetalCamera_Example.release.xcconfig */,
+			);
+			name = "Pods-MetalCamera_Example";
+			path = "Target Support Files/Pods-MetalCamera_Example";
+			sourceTree = "<group>";
+		};
+		744341966551DF5B11D8E96368E74BE3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				484AE181F5E9F85D9DB74787F470B455 /* MetalCamera.modulemap */,
+				352D081B5D2170DB7C43AEB74597D967 /* MetalCamera-dummy.m */,
+				0F000624AEC67D57533D3736857ED263 /* MetalCamera-Info.plist */,
+				E2A7FF22E70561E63CF3A515FA369F87 /* MetalCamera-prefix.pch */,
+				6A42D0E7D18903DCD5C1AD2421DC54F7 /* MetalCamera-umbrella.h */,
+				3F97CC833243241A2504910330808958 /* MetalCamera.debug.xcconfig */,
+				37806EB54A9317909665FDBF4AD6F7EC /* MetalCamera.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MetalCamera";
+			sourceTree = "<group>";
+		};
+		9449911E9E53629EB8E97ED6FB66936B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				730C42DDFF0770C3CA7C4028AE85D73D /* Pods-MetalCamera_Example */,
+				A11788FFB28226978E3E3D6205BCFF7F /* Pods-MetalCamera_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A11788FFB28226978E3E3D6205BCFF7F /* Pods-MetalCamera_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DF93287442D07DEE4D6BDC98A4F7858D /* Pods-MetalCamera_Tests.modulemap */,
+				B1342D1720E1E3D0BAF3B9E68417BE16 /* Pods-MetalCamera_Tests-acknowledgements.markdown */,
+				C0133802E57D3451808D9C8FCFBC0606 /* Pods-MetalCamera_Tests-acknowledgements.plist */,
+				BBAA8A16A1BC44D126E55BB0344AB854 /* Pods-MetalCamera_Tests-dummy.m */,
+				B66CFDF7907AACE1E877445B20A10D8D /* Pods-MetalCamera_Tests-Info.plist */,
+				BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */,
+				48563F984110514C804A8AC1BDDEFE88 /* Pods-MetalCamera_Tests.debug.xcconfig */,
+				B8E03A4200EAF45C9916B1FE2728C631 /* Pods-MetalCamera_Tests.release.xcconfig */,
+			);
+			name = "Pods-MetalCamera_Tests";
+			path = "Target Support Files/Pods-MetalCamera_Tests";
+			sourceTree = "<group>";
+		};
+		A4CAF3971AF7E9E6AF5D73FA3EA7535C /* MetalCamera */ = {
+			isa = PBXGroup;
+			children = (
+				07803974248B3BE60018A764 /* operations */,
+				0780396C248B227B0018A764 /* utils */,
+				7282206FF8DE8A104C05586CE56C0396 /* shader */,
+				E0BCC0EF000972150433B7A5159D155B /* MetalCamera.swift */,
+				0780397D248B6B520018A764 /* MetalVideoLoader.swift */,
+				7CA551FEF35C58FEFF7DC6221E97631D /* MetalVideoView.swift */,
+				07803989248B90350018A764 /* MetalVideoWriter.swift */,
+				F80163F97B976ED08F2496A1C428B4BE /* MetalRenderingDevice.swift */,
+				BB2C0E3E5A36A04B206DA52976D8D0A0 /* OperationChain.swift */,
+				07803972248B3BB90018A764 /* Texture.swift */,
+				65750C678B76A87D5BEB75B016F270F6 /* Pod */,
+				744341966551DF5B11D8E96368E74BE3 /* Support Files */,
+			);
+			name = MetalCamera;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C1DA3649CACC3F75AB38EC995C2E581B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF7A8B92BF65A2172B89781FF2580ED1 /* MetalCamera.framework */,
+				6E5568AF6DF48863DFB2C27B6D618166 /* Pods_MetalCamera_Example.framework */,
+				C76D26C83AD07E97532CD776C20B60F8 /* Pods_MetalCamera_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				27D545D86E34BA1C43F4D35FA88DE552 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				C1DA3649CACC3F75AB38EC995C2E581B /* Products */,
+				9449911E9E53629EB8E97ED6FB66936B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2526CD159CBE47CE0F59B619D70427DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34C2EA3A25465FA97706495EDE219955 /* Pods-MetalCamera_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		282E9D36684760D8E42B4FB4EA76969B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71640E4FD05B8B0B92AA95FA2160E406 /* MetalCamera-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8677B6771E6D5B663BF2E6E6A722B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72CE3FC14A92CEE96EDA6DECDADCD5E6 /* Pods-MetalCamera_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4AA1D4317651EC0E70D4EA12A9EE161B /* MetalCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46F27678702BF69D05ED6E4ABAAD0552 /* Build configuration list for PBXNativeTarget "MetalCamera" */;
+			buildPhases = (
+				282E9D36684760D8E42B4FB4EA76969B /* Headers */,
+				ABC764DBF2B2210ECD5A0A61BF34CFC1 /* Sources */,
+				21B582BC7B39B596C0F572397111FA7E /* Frameworks */,
+				C318147F4430DE3B443B40EB62C1E95D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MetalCamera;
+			productName = MetalCamera;
+			productReference = FF7A8B92BF65A2172B89781FF2580ED1 /* MetalCamera.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA67A817A0DFD7EB1A0970DE72266E7E /* Pods-MetalCamera_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34BAFD19BCEA0699D0D1028065BC583A /* Build configuration list for PBXNativeTarget "Pods-MetalCamera_Example" */;
+			buildPhases = (
+				4F8677B6771E6D5B663BF2E6E6A722B6 /* Headers */,
+				732E2D15BC022C96F2FECCF34044BCC1 /* Sources */,
+				D309FA300A5F48AA9B20088CA83BE29D /* Frameworks */,
+				CAC77044F2A9CEC1DAC8990BD12FEA2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA48F9F1B8AE31A67AACD94E0E6AA5A4 /* PBXTargetDependency */,
+			);
+			name = "Pods-MetalCamera_Example";
+			productName = "Pods-MetalCamera_Example";
+			productReference = 6E5568AF6DF48863DFB2C27B6D618166 /* Pods_MetalCamera_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBEB0E3468DB539A77AA2E193F33D8A7 /* Pods-MetalCamera_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27C1F27A99E9CA9AEBB472190F008F93 /* Build configuration list for PBXNativeTarget "Pods-MetalCamera_Tests" */;
+			buildPhases = (
+				2526CD159CBE47CE0F59B619D70427DC /* Headers */,
+				63FA8BFA05E57CB442A0152BAA268BF3 /* Sources */,
+				5297C1ADBE80BC78E1A32D83362D9DA0 /* Frameworks */,
+				AFAF12493D6EAB02DEB1DADC67C238DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				229934D076355C92C486C85ABC56B077 /* PBXTargetDependency */,
+			);
+			name = "Pods-MetalCamera_Tests";
+			productName = "Pods-MetalCamera_Tests";
+			productReference = C76D26C83AD07E97532CD776C20B60F8 /* Pods_MetalCamera_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = C1DA3649CACC3F75AB38EC995C2E581B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AA1D4317651EC0E70D4EA12A9EE161B /* MetalCamera */,
+				AA67A817A0DFD7EB1A0970DE72266E7E /* Pods-MetalCamera_Example */,
+				BBEB0E3468DB539A77AA2E193F33D8A7 /* Pods-MetalCamera_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFAF12493D6EAB02DEB1DADC67C238DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C318147F4430DE3B443B40EB62C1E95D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAC77044F2A9CEC1DAC8990BD12FEA2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63FA8BFA05E57CB442A0152BAA268BF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC69473AF4E82C84D0E685C2BCE64B8 /* Pods-MetalCamera_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		732E2D15BC022C96F2FECCF34044BCC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABC764DBF2B2210ECD5A0A61BF34CFC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3001EB0C134E40FD0E79890BD7F2266 /* Maths.swift in Sources */,
+				07803973248B3BB90018A764 /* Texture.swift in Sources */,
+				0780398A248B90350018A764 /* MetalVideoWriter.swift in Sources */,
+				8A8293278F18AE5D478908B7C1676FB9 /* MetalCamera-dummy.m in Sources */,
+				AC36A4D9423F8FBE0161B77023B563C6 /* MetalCamera.swift in Sources */,
+				0780396E248B227B0018A764 /* extensions.swift in Sources */,
+				07803976248B3BE60018A764 /* Rotation.swift in Sources */,
+				93BB562D54F68A9B50D6A62426DB6BA0 /* MetalRenderingDevice.swift in Sources */,
+				6C9AC97EE41D758AE70401D2BE19D21A /* MetalVideoView.swift in Sources */,
+				07803988248B8CBA0018A764 /* Gray.swift in Sources */,
+				46553E9EB0DD3849C34221F8C333E8CF /* OperationChain.swift in Sources */,
+				8573B0E5C676C9E69B52B863B3008985 /* Shaders.metal in Sources */,
+				0780397E248B6B520018A764 /* MetalVideoLoader.swift in Sources */,
+				0780397A248B40D90018A764 /* ImageCompositor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		229934D076355C92C486C85ABC56B077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MetalCamera_Example";
+			target = AA67A817A0DFD7EB1A0970DE72266E7E /* Pods-MetalCamera_Example */;
+			targetProxy = 9CC5F9BF2A4B95902AFE5F92437EF204 /* PBXContainerItemProxy */;
+		};
+		EA48F9F1B8AE31A67AACD94E0E6AA5A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MetalCamera;
+			target = 4AA1D4317651EC0E70D4EA12A9EE161B /* MetalCamera */;
+			targetProxy = EB5923503F3FDD6D006202C760AC37F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		512CE5BD4772ADB58E0CAEB168A24F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48563F984110514C804A8AC1BDDEFE88 /* Pods-MetalCamera_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MetalCamera_Tests/Pods-MetalCamera_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetalCamera_Tests/Pods-MetalCamera_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7A06DBD4E01DBFA193ADDA42EB834E0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37806EB54A9317909665FDBF4AD6F7EC /* MetalCamera.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetalCamera/MetalCamera-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetalCamera/MetalCamera-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetalCamera/MetalCamera.modulemap";
+				PRODUCT_MODULE_NAME = MetalCamera;
+				PRODUCT_NAME = MetalCamera;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7F104EB0741EB9128EF6F5934075763F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8E03A4200EAF45C9916B1FE2728C631 /* Pods-MetalCamera_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MetalCamera_Tests/Pods-MetalCamera_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetalCamera_Tests/Pods-MetalCamera_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B32866FCD058D908D8A3E317B220CC88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F97CC833243241A2504910330808958 /* MetalCamera.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MetalCamera/MetalCamera-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MetalCamera/MetalCamera-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MetalCamera/MetalCamera.modulemap";
+				PRODUCT_MODULE_NAME = MetalCamera;
+				PRODUCT_NAME = MetalCamera;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BDC516CE6AD5BA9B2655A4E7A7A4ADAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEE223A4A7CE12AE93D0B04555E7C25B /* Pods-MetalCamera_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MetalCamera_Example/Pods-MetalCamera_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetalCamera_Example/Pods-MetalCamera_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C495EA3A3D2F11349DACCD0C07677F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B72D39317FDB37904CB1C77784044BF7 /* Pods-MetalCamera_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MetalCamera_Example/Pods-MetalCamera_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetalCamera_Example/Pods-MetalCamera_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27C1F27A99E9CA9AEBB472190F008F93 /* Build configuration list for PBXNativeTarget "Pods-MetalCamera_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				512CE5BD4772ADB58E0CAEB168A24F25 /* Debug */,
+				7F104EB0741EB9128EF6F5934075763F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34BAFD19BCEA0699D0D1028065BC583A /* Build configuration list for PBXNativeTarget "Pods-MetalCamera_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDC516CE6AD5BA9B2655A4E7A7A4ADAB /* Debug */,
+				C495EA3A3D2F11349DACCD0C07677F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46F27678702BF69D05ED6E4ABAAD0552 /* Build configuration list for PBXNativeTarget "MetalCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B32866FCD058D908D8A3E317B220CC88 /* Debug */,
+				7A06DBD4E01DBFA193ADDA42EB834E0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
+				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

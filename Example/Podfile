@@ -1,0 +1,9 @@
+use_frameworks!
+
+target 'MetalCamera_Example' do
+  pod 'MetalCamera', :path => '../'
+
+  target 'MetalCamera_Tests' do
+    inherit! :search_paths    
+  end
+end

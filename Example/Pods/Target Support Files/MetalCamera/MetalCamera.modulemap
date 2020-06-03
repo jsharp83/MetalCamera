@@ -1,0 +1,6 @@
+framework module MetalCamera {
+  umbrella header "MetalCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}

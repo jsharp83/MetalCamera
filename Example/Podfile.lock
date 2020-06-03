@@ -1,0 +1,16 @@
+PODS:
+  - MetalCamera (0.1.1)
+
+DEPENDENCIES:
+  - MetalCamera (from `../`)
+
+EXTERNAL SOURCES:
+  MetalCamera:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MetalCamera: 6843a01cab60d8d54189db23a8e32b0960c83e55
+
+PODFILE CHECKSUM: 532096ce5afeffa4a6492f414d039b7ae737622c
+
+COCOAPODS: 1.9.3
