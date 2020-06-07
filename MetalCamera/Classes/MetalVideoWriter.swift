@@ -229,17 +229,17 @@ extension MetalVideoWriter {
 
 // MARK: Audio processing
 extension MetalVideoWriter {
-    public func newAudioAvailable(_ sampleBuffer: CMSampleBuffer) {
+    public func newAudioAvailable(_ sampleBuffer: AudioBuffer) {
         handleAudio(sampleBuffer)
         audioOperationFinished(sampleBuffer)
     }
 
-    private func handleAudio(_ sampleBuffer: CMSampleBuffer) {
+    private func handleAudio(_ sampleBuffer: AudioBuffer) {
         guard isRecording, startTime != nil,
             let audioInput = assetWriterAudioInput else { return }
 
         if audioInput.isReadyForMoreMediaData {
-            audioInput.append(sampleBuffer)
+            audioInput.append(sampleBuffer.buffer)
         }
     }
 }

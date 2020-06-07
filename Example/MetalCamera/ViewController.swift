@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     let useMic = true
 
     var recordingURL: URL {
-        let documentsDir = try? FileManager.default.url(for:.documentDirectory, in:.userDomainMask, appropriateFor:nil, create:true)
-        let fileURL = URL(string: "test.mov", relativeTo:documentsDir)!
+        let documentsDir = try? FileManager.default.url(for:. documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileURL = URL(string: "recording.mov", relativeTo: documentsDir)!
         return fileURL
     }
 
@@ -103,7 +103,7 @@ extension ViewController {
 
         let rotation90 = RotationOperation(.degree90_flip)
 
-        let imageCompositor = ImageCompositor(baseTextureKey: camera.textureKey)
+        let imageCompositor = ImageCompositor(baseTextureKey: camera.sourceKey)
         guard let testImage = UIImage(named: "sampleImage") else {
             fatalError("Check image resource")
         }
@@ -114,7 +114,7 @@ extension ViewController {
         imageCompositor.addCompositeImage(testImage)
         imageCompositor.sourceFrame = compositeFrame
 
-        videoCompositor = ImageCompositor(baseTextureKey: camera.textureKey)
+        videoCompositor = ImageCompositor(baseTextureKey: camera.sourceKey)
         videoCompositor.sourceFrame = CGRect(x: 320, y: 100, width: 450, height: 250)
 
         camera-->rotation90-->gray-->imageCompositor-->videoCompositor-->preview
@@ -123,10 +123,10 @@ extension ViewController {
 
     func setupVideo() {
         let bundleURL = Bundle.main.resourceURL!
-        let movieURL = URL(string:"sample2.mp4", relativeTo:bundleURL)!
+        let movieURL = URL(string: "bunny.mp4", relativeTo: bundleURL)!
         do {
-            let videoLoader = try MetalVideoLoader(url: movieURL)
-            videoCompositor.sourceTextureKey = videoLoader.textureKey
+            let videoLoader = try MetalVideoLoader(url: movieURL, useAudio: true)
+            videoCompositor.sourceTextureKey = videoLoader.sourceKey
             videoLoader-->videoCompositor
             video = videoLoader
         } catch {
