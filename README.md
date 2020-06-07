@@ -49,6 +49,8 @@ override func viewDidDisappear(_ animated: Bool) {
 ```
 
 ### Composite images or video and Rotation
+![demo](./docs/record_sample.gif)
+
 ```swift
 let rotation90 = RotationOperation(.degree90_flip)
 
@@ -74,8 +76,6 @@ camera-->rotation90-->gray-->imageCompositor-->videoCompositor-->preview
 TBD
 
 ### Recording video and audio
-![demo](./docs/record_sample.gif)
-
 ```swift
 do {
     if FileManager.default.fileExists(atPath: recordingURL.path) {
