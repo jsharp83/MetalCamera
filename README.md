@@ -98,7 +98,7 @@ do {
 ```
 
 ## Requirements
-* Swift 4
+* Swift 5
 * Xcode 11.5 or higher on Mac
 * iOS: 13.0 or higher
 
