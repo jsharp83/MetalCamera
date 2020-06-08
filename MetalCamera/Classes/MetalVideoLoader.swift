@@ -59,7 +59,12 @@ public class MetalVideoLoader: OperationChain, AudioOperationChain {
         guard useAudio else { return }
 
         if let audioTrack = asset.tracks(withMediaType: .audio).first {
-            let audioTrackOutput = AVAssetReaderTrackOutput(track: audioTrack, outputSettings: [AVFormatIDKey: Int(kAudioFormatLinearPCM)])
+            let outputSettings: [String: Any] = [AVFormatIDKey: kAudioFormatLinearPCM,
+                                                 AVNumberOfChannelsKey: 1,
+                                                 AVSampleRateKey: 44100,
+            ]
+
+            let audioTrackOutput = AVAssetReaderTrackOutput(track: audioTrack, outputSettings: outputSettings)
             assetReader.add(audioTrackOutput)
             self.audioTrackOutput = audioTrackOutput
         } else {

@@ -16,6 +16,7 @@
 		0780398A248B90350018A764 /* MetalVideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803989248B90350018A764 /* MetalVideoWriter.swift */; };
 		07857297248DB33800A7CD9B /* AudioCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07857296248DB33800A7CD9B /* AudioCompositor.swift */; };
 		0785729B248DB5B600A7CD9B /* AudioBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785729A248DB5B600A7CD9B /* AudioBuffer.swift */; };
+		078572A1248DD51D00A7CD9B /* AudioStreamPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078572A0248DD51D00A7CD9B /* AudioStreamPlayer.swift */; };
 		0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */; };
 		34C2EA3A25465FA97706495EDE219955 /* Pods-MetalCamera_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,7 +60,8 @@
 		07803987248B8CBA0018A764 /* Gray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
 		07803989248B90350018A764 /* MetalVideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetalVideoWriter.swift; path = MetalCamera/Classes/MetalVideoWriter.swift; sourceTree = "<group>"; };
 		07857296248DB33800A7CD9B /* AudioCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCompositor.swift; sourceTree = "<group>"; };
-		0785729A248DB5B600A7CD9B /* AudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioBuffer.swift; path = MetalCamera/Classes/AudioBuffer.swift; sourceTree = "<group>"; };
+		0785729A248DB5B600A7CD9B /* AudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBuffer.swift; sourceTree = "<group>"; };
+		078572A0248DD51D00A7CD9B /* AudioStreamPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioStreamPlayer.swift; sourceTree = "<group>"; };
 		0F000624AEC67D57533D3736857ED263 /* MetalCamera-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetalCamera-Info.plist"; sourceTree = "<group>"; };
 		2DF4902C0E432A4C566375ADF067EFBD /* Shaders.metal */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -144,10 +146,20 @@
 				07803975248B3BE60018A764 /* Rotation.swift */,
 				07803987248B8CBA0018A764 /* Gray.swift */,
 				07803979248B40D90018A764 /* ImageCompositor.swift */,
-				07857296248DB33800A7CD9B /* AudioCompositor.swift */,
 			);
 			name = operations;
 			path = MetalCamera/Classes/operations;
+			sourceTree = "<group>";
+		};
+		0785729F248DD51D00A7CD9B /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				0785729A248DB5B600A7CD9B /* AudioBuffer.swift */,
+				078572A0248DD51D00A7CD9B /* AudioStreamPlayer.swift */,
+				07857296248DB33800A7CD9B /* AudioCompositor.swift */,
+			);
+			name = audio;
+			path = MetalCamera/Classes/audio;
 			sourceTree = "<group>";
 		};
 		27D545D86E34BA1C43F4D35FA88DE552 /* Development Pods */ = {
@@ -237,6 +249,7 @@
 		A4CAF3971AF7E9E6AF5D73FA3EA7535C /* MetalCamera */ = {
 			isa = PBXGroup;
 			children = (
+				0785729F248DD51D00A7CD9B /* audio */,
 				07803974248B3BE60018A764 /* operations */,
 				0780396C248B227B0018A764 /* utils */,
 				7282206FF8DE8A104C05586CE56C0396 /* shader */,
@@ -247,7 +260,6 @@
 				F80163F97B976ED08F2496A1C428B4BE /* MetalRenderingDevice.swift */,
 				BB2C0E3E5A36A04B206DA52976D8D0A0 /* OperationChain.swift */,
 				07803972248B3BB90018A764 /* Texture.swift */,
-				0785729A248DB5B600A7CD9B /* AudioBuffer.swift */,
 				65750C678B76A87D5BEB75B016F270F6 /* Pod */,
 				744341966551DF5B11D8E96368E74BE3 /* Support Files */,
 			);
@@ -453,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3001EB0C134E40FD0E79890BD7F2266 /* Maths.swift in Sources */,
+				078572A1248DD51D00A7CD9B /* AudioStreamPlayer.swift in Sources */,
 				07803973248B3BB90018A764 /* Texture.swift in Sources */,
 				07857297248DB33800A7CD9B /* AudioCompositor.swift in Sources */,
 				0780398A248B90350018A764 /* MetalVideoWriter.swift in Sources */,

@@ -114,10 +114,6 @@ public class MetalVideoWriter: OperationChain, AudioOperationChain {
         }
     }
 
-    private func setupVideo() {
-
-    }
-
     private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
         do {
             let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "fragment_render_target", colorPixelFormat)
