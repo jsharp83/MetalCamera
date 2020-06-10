@@ -48,7 +48,7 @@ override func viewDidDisappear(_ animated: Bool) {
 }    
 ```
 
-### Load CoreML
+### Download and load CoreML from web url
 ```swift
 
 import MetalCamera  
