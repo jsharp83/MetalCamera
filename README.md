@@ -48,6 +48,29 @@ override func viewDidDisappear(_ animated: Bool) {
 }    
 ```
 
+### Load CoreML
+```swift
+
+import MetalCamera  
+
+let url = URL(string: "https://ml-assets.apple.com/coreml/models/Image/ImageSegmentation/DeepLabV3/DeepLabV3Int8LUT.mlmodel")!
+
+do {
+    coreMLLoader = try CoreMLLoader(url: url, isForcedDownload: true)
+    try coreMLLoader?.load({ (progress) in
+        debugPrint("Model downloading.... \(progress)")
+    }, { (loadedModel, error) in
+        if let loadedModel = loadedModel {
+            debugPrint(loadedModel)
+        } else if let error = error {
+            debugPrint(error)
+        }
+    })
+} catch {
+    debugPrint(error)
+}
+```
+
 ### Composite images or video and Rotation
 ![demo](./docs/record_sample.gif)
 
