@@ -15,28 +15,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var preview: MetalVideoView!
     @IBOutlet weak var recordButton: UIButton!
 
+    let useMic = true
+
     var camera: MetalCamera!
     var video: MetalVideoLoader?
     var videoCompositor: ImageCompositor!
     var recorder: MetalVideoWriter?
 
-    let useMic = true
-
     var recordingURL: URL {
-        let documentsDir = try? FileManager.default.url(for:.documentDirectory, in:.userDomainMask, appropriateFor:nil, create:true)
-        let fileURL = URL(string: "test.mov", relativeTo:documentsDir)!
+        let documentsDir = try? FileManager.default.url(for:. documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileURL = URL(string: "recording.mov", relativeTo: documentsDir)!
         return fileURL
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setupAudioSession()
         setupCamera()
         setupVideo()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         camera?.startCapture()
         video?.start()
     }
@@ -103,7 +105,7 @@ extension ViewController {
 
         let rotation90 = RotationOperation(.degree90_flip)
 
-        let imageCompositor = ImageCompositor(baseTextureKey: camera.textureKey)
+        let imageCompositor = ImageCompositor(baseTextureKey: camera.sourceKey)
         guard let testImage = UIImage(named: "sampleImage") else {
             fatalError("Check image resource")
         }
@@ -114,7 +116,7 @@ extension ViewController {
         imageCompositor.addCompositeImage(testImage)
         imageCompositor.sourceFrame = compositeFrame
 
-        videoCompositor = ImageCompositor(baseTextureKey: camera.textureKey)
+        videoCompositor = ImageCompositor(baseTextureKey: camera.sourceKey)
         videoCompositor.sourceFrame = CGRect(x: 320, y: 100, width: 450, height: 250)
 
         camera-->rotation90-->gray-->imageCompositor-->videoCompositor-->preview
@@ -123,12 +125,25 @@ extension ViewController {
 
     func setupVideo() {
         let bundleURL = Bundle.main.resourceURL!
-        let movieURL = URL(string:"sample2.mp4", relativeTo:bundleURL)!
+        let movieURL = URL(string: "bunny.mp4", relativeTo: bundleURL)!
         do {
-            let videoLoader = try MetalVideoLoader(url: movieURL)
-            videoCompositor.sourceTextureKey = videoLoader.textureKey
+            let videoLoader = try MetalVideoLoader(url: movieURL, useAudio: false)
+            videoCompositor.sourceTextureKey = videoLoader.sourceKey
             videoLoader-->videoCompositor
+//            videoLoader==>audioPlayer==>audioCompositor
             video = videoLoader
+        } catch {
+            debugPrint(error)
+        }
+    }
+
+    func setupAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setActive(false)
+            try audioSession.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetoothA2DP, .defaultToSpeaker])
+            try audioSession.setMode(.videoChat)
+            try audioSession.setActive(true)
         } catch {
             debugPrint(error)
         }

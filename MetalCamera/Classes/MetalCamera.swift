@@ -30,19 +30,19 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
     var framesSinceLastCheck = 0
     var lastCheckTime = CFAbsoluteTimeGetCurrent()
 
-    public let textureKey: String
+    public let sourceKey: String
     public var targets = TargetContainer<OperationChain>()
     public var audioTargets = TargetContainer<AudioOperationChain>()
 
     let useMic: Bool
 
-    public init(sessionPreset: AVCaptureSession.Preset = .hd1280x720, position: AVCaptureDevice.Position = .front, textureKey: String = "camera", useMic: Bool = false) throws {
+    public init(sessionPreset: AVCaptureSession.Preset = .hd1280x720, position: AVCaptureDevice.Position = .front, sourceKey: String = "camera", useMic: Bool = false) throws {
         guard let device = position.device() else {
             throw MetalCameraError.noVideoDevice
         }
 
         inputCamera = device
-        self.textureKey = textureKey
+        self.sourceKey = sourceKey
 
         self.useMic = useMic
 
@@ -124,7 +124,7 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
     }
 
     public func newTextureAvailable(_ texture: Texture) {}
-    public func newAudioAvailable(_ sampleBuffer: CMSampleBuffer) {}
+    public func newAudioAvailable(_ sampleBuffer: AudioBuffer) {}
 }
 
 extension MetalCamera: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
@@ -157,7 +157,7 @@ extension MetalCamera: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAu
             let _ = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, videoTextureCache, cameraFrame, nil, .bgra8Unorm, bufferWidth, bufferHeight, 0, &textureRef)
             if let concreteTexture = textureRef,
                 let cameraTexture = CVMetalTextureGetTexture(concreteTexture) {
-                texture = Texture(texture: cameraTexture, timestamp: currentTime, textureKey: self.textureKey)
+                texture = Texture(texture: cameraTexture, timestamp: currentTime, textureKey: self.sourceKey)
             } else {
                 texture = nil
             }
@@ -189,7 +189,7 @@ extension MetalCamera: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAu
     }
 
     private func handleAudio(_ sampleBuffer: CMSampleBuffer) {
-        audioOperationFinished(sampleBuffer)
+        audioOperationFinished(AudioBuffer(sampleBuffer, sourceKey))
     }
 }
 

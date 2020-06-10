@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AVFoundation
 
 public protocol OperationChain: AnyObject {
     var targets: TargetContainer<OperationChain> { get }
@@ -36,8 +35,8 @@ extension OperationChain {
 
 public protocol AudioOperationChain: AnyObject {
     var audioTargets: TargetContainer<AudioOperationChain> { get }
-    func newAudioAvailable(_ sampleBuffer: CMSampleBuffer)
-    func audioOperationFinished(_ sampleBuffer: CMSampleBuffer)
+    func newAudioAvailable(_ sampleBuffer: AudioBuffer)
+    func audioOperationFinished(_ sampleBuffer: AudioBuffer)
 }
 
 extension AudioOperationChain {
@@ -53,7 +52,7 @@ extension AudioOperationChain {
         audioTargets.removeAll()
     }
 
-    public func audioOperationFinished(_ sampleBuffer: CMSampleBuffer) {
+    public func audioOperationFinished(_ sampleBuffer: AudioBuffer) {
         for target in audioTargets {
             target?.newAudioAvailable(sampleBuffer)
         }

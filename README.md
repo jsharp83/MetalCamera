@@ -98,7 +98,7 @@ do {
 ```
 
 ## Requirements
-* Swift 4
+* Swift 5
 * Xcode 11.5 or higher on Mac
 * iOS: 13.0 or higher
 
@@ -114,7 +114,7 @@ pod 'MetalCamera'
 ## References
 
 When creating this repository, I referenced the following repositories a lot. 
-First of all, thanks to those who have worked and opened many parts, and let me know if there are any problems.
+First of all, thanks to those who have worked and opened many parts in advance, and let me know if there are any problems.
 
 * [GPUImage3](https://github.com/BradLarson/GPUImage3)
 * [MaLiang](https://github.com/Harley-xk/MaLiang)

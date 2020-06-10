@@ -114,10 +114,6 @@ public class MetalVideoWriter: OperationChain, AudioOperationChain {
         }
     }
 
-    private func setupVideo() {
-
-    }
-
     private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
         do {
             let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "fragment_render_target", colorPixelFormat)
@@ -229,17 +225,17 @@ extension MetalVideoWriter {
 
 // MARK: Audio processing
 extension MetalVideoWriter {
-    public func newAudioAvailable(_ sampleBuffer: CMSampleBuffer) {
+    public func newAudioAvailable(_ sampleBuffer: AudioBuffer) {
         handleAudio(sampleBuffer)
         audioOperationFinished(sampleBuffer)
     }
 
-    private func handleAudio(_ sampleBuffer: CMSampleBuffer) {
+    private func handleAudio(_ sampleBuffer: AudioBuffer) {
         guard isRecording, startTime != nil,
             let audioInput = assetWriterAudioInput else { return }
 
         if audioInput.isReadyForMoreMediaData {
-            audioInput.append(sampleBuffer)
+            audioInput.append(sampleBuffer.buffer)
         }
     }
 }
