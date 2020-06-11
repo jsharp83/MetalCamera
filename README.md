@@ -12,6 +12,9 @@ MetalCamera is an open source project for performing GPU-accelerated image and v
 
 There are many ways to use the GPU, including CIFilter, but it's not open or difficult to expand feature and contribute.
 
+The main goal of this repository is to provide an interface and test performance to develop and apply it to actual services more easily when you have an idea about image processing and machine learning in the iOS environment.
+
+
 There are still a lot of bugs and many things to implement, 
 but I created a repository because I wanted to develop camera and vision feature in iOS with many people.
 
@@ -57,7 +60,7 @@ let url = URL(string: "https://ml-assets.apple.com/coreml/models/Image/ImageSegm
 
 do {
     coreMLLoader = try CoreMLLoader(url: url, isForcedDownload: true)
-    try coreMLLoader?.load({ (progress) in
+    coreMLLoader?.load({ (progress) in
         debugPrint("Model downloading.... \(progress)")
     }, { (loadedModel, error) in
         if let loadedModel = loadedModel {
@@ -68,6 +71,36 @@ do {
     })
 } catch {
     debugPrint(error)
+}
+```
+
+### Segmentation Test
+![Segmentation](./docs/seg.gif)
+```swift
+func loadCoreML() {
+    do {
+        let modelURL = URL(string: "https://ml-assets.apple.com/coreml/models/Image/ImageSegmentation/DeepLabV3/DeepLabV3Int8LUT.mlmodel")!    
+        let loader = try CoreMLLoader(url: modelURL)
+        loader.load { [weak self](model, error) in
+            if let model = model {
+                self?.setupModelHandler(model)
+            } else if let error = error {
+                debugPrint(error)
+            }
+        }
+    } catch {
+        debugPrint(error)
+    }
+}
+
+func setupModelHandler(_ model: MLModel) {
+    do {
+        let modelHandler = try CoreMLClassifierHandler(model)
+        camera.removeTarget(preview)
+        camera-->modelHandler-->preview
+    } catch{
+        debugPrint(error)
+    }
 }
 ```
 

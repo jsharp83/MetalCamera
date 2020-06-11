@@ -12,6 +12,7 @@ enum CoreMLLoaderError: Error {
     case invalidFileName
     case compileFailed
     case loadFailed
+    case removeExistFileFailed
 }
 
 public class CoreMLLoader {
@@ -43,9 +44,14 @@ public class CoreMLLoader {
 
     // TODO: Cancel and handling background process are needed.
     public func load(_ progressHandler: ((Double) -> Void)? = nil,
-                     _ completionHandler: @escaping ((MLModel?, Error?) -> Void)) throws {
+                     _ completionHandler: @escaping ((MLModel?, Error?) -> Void)) {
         if isForcedDownload {
-            try FileManager.default.removeItem(atPath: fileURL.path)
+            do {
+                try FileManager.default.removeItem(atPath: fileURL.path)
+            } catch {
+                completionHandler(nil, CoreMLLoaderError.removeExistFileFailed)
+                return
+            }
         }
 
         if FileManager.default.fileExists(atPath: fileURL.path) {

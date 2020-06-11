@@ -36,7 +36,12 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
 
     let useMic: Bool
 
-    public init(sessionPreset: AVCaptureSession.Preset = .hd1280x720, position: AVCaptureDevice.Position = .front, sourceKey: String = "camera", useMic: Bool = false) throws {
+    public init(sessionPreset: AVCaptureSession.Preset = .hd1280x720,
+                position: AVCaptureDevice.Position = .front,
+                sourceKey: String = "camera",
+                useMic: Bool = false,
+                videoOrientation: AVCaptureVideoOrientation? = nil,
+                isVideoMirrored: Bool? = nil) throws {
         guard let device = position.device() else {
             throw MetalCameraError.noVideoDevice
         }
@@ -94,6 +99,15 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
 
         super.init()
         videoOutput.setSampleBufferDelegate(self, queue: cameraProcessingQueue)
+
+        if let orientation = videoOrientation {
+            videoOutput.connection(with: .video)?.videoOrientation = orientation
+        }
+
+        if let isVideoMirrored = isVideoMirrored {
+            videoOutput.connection(with: .video)?.isVideoMirrored = isVideoMirrored
+        }
+
         audioOutput?.setSampleBufferDelegate(self, queue: cameraProcessingQueue)
     }
 
@@ -130,7 +144,14 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
 extension MetalCamera: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if connection == videoOutput?.connection(with: .video) {
+            for target in targets {
+                if let target = target as? CMSampleChain {
+                    target.newBufferAvailable(sampleBuffer)
+                }
+            }
+
             handleVideo(sampleBuffer)
+
         } else if connection == audioOutput?.connection(with: .audio) {
             handleAudio(sampleBuffer)
         }

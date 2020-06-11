@@ -11,7 +11,7 @@ import MetalCamera
 import AVKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class CameraSampleViewController: UIViewController {
     @IBOutlet weak var preview: MetalVideoView!
     @IBOutlet weak var recordButton: UIButton!
 
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: Setup Funcs
-extension ViewController {
+extension CameraSampleViewController {
     func setupCamera() {
         guard let camera = try? MetalCamera(useMic: useMic) else { return }
 
