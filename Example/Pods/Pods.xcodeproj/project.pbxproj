@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0774B1722495DD54002C2A96 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774B1712495DD54002C2A96 /* Colors.swift */; };
 		077B781F24910EB100A74BAD /* CoreMLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B781E24910EB100A74BAD /* CoreMLLoader.swift */; };
 		0780396E248B227B0018A764 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0780396D248B227B0018A764 /* extensions.swift */; };
 		07803973248B3BB90018A764 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07803972248B3BB90018A764 /* Texture.swift */; };
@@ -18,6 +19,8 @@
 		07857297248DB33800A7CD9B /* AudioCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07857296248DB33800A7CD9B /* AudioCompositor.swift */; };
 		0785729B248DB5B600A7CD9B /* AudioBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785729A248DB5B600A7CD9B /* AudioBuffer.swift */; };
 		078572A1248DD51D00A7CD9B /* AudioStreamPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078572A0248DD51D00A7CD9B /* AudioStreamPlayer.swift */; };
+		07869760249315480031443C /* CoreMLClassifierHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786975F249315480031443C /* CoreMLClassifierHandler.swift */; };
+		0788AA6F2498685F007A82E1 /* AlphaBlend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0788AA6E2498685F007A82E1 /* AlphaBlend.swift */; };
 		0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */; };
 		34C2EA3A25465FA97706495EDE219955 /* Pods-MetalCamera_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0774B1712495DD54002C2A96 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		077B781E24910EB100A74BAD /* CoreMLLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreMLLoader.swift; sourceTree = "<group>"; };
 		0780396D248B227B0018A764 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		07803972248B3BB90018A764 /* Texture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Texture.swift; path = MetalCamera/Classes/Texture.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		07857296248DB33800A7CD9B /* AudioCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCompositor.swift; sourceTree = "<group>"; };
 		0785729A248DB5B600A7CD9B /* AudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBuffer.swift; sourceTree = "<group>"; };
 		078572A0248DD51D00A7CD9B /* AudioStreamPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioStreamPlayer.swift; sourceTree = "<group>"; };
+		0786975F249315480031443C /* CoreMLClassifierHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierHandler.swift; sourceTree = "<group>"; };
+		0788AA6E2498685F007A82E1 /* AlphaBlend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaBlend.swift; sourceTree = "<group>"; };
 		0F000624AEC67D57533D3736857ED263 /* MetalCamera-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetalCamera-Info.plist"; sourceTree = "<group>"; };
 		2DF4902C0E432A4C566375ADF067EFBD /* Shaders.metal */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				077B781E24910EB100A74BAD /* CoreMLLoader.swift */,
+				0786975F249315480031443C /* CoreMLClassifierHandler.swift */,
 			);
 			name = CoreML;
 			path = MetalCamera/Classes/CoreML;
@@ -146,6 +153,7 @@
 			children = (
 				3D72C3BED6D67B3BC3ED32B95062DB71 /* Maths.swift */,
 				0780396D248B227B0018A764 /* extensions.swift */,
+				0774B1712495DD54002C2A96 /* Colors.swift */,
 			);
 			name = utils;
 			path = MetalCamera/Classes/utils;
@@ -157,6 +165,7 @@
 				07803975248B3BE60018A764 /* Rotation.swift */,
 				07803987248B8CBA0018A764 /* Gray.swift */,
 				07803979248B40D90018A764 /* ImageCompositor.swift */,
+				0788AA6E2498685F007A82E1 /* AlphaBlend.swift */,
 			);
 			name = operations;
 			path = MetalCamera/Classes/operations;
@@ -477,6 +486,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3001EB0C134E40FD0E79890BD7F2266 /* Maths.swift in Sources */,
+				0788AA6F2498685F007A82E1 /* AlphaBlend.swift in Sources */,
+				0774B1722495DD54002C2A96 /* Colors.swift in Sources */,
 				078572A1248DD51D00A7CD9B /* AudioStreamPlayer.swift in Sources */,
 				07803973248B3BB90018A764 /* Texture.swift in Sources */,
 				07857297248DB33800A7CD9B /* AudioCompositor.swift in Sources */,
@@ -492,6 +503,7 @@
 				07803988248B8CBA0018A764 /* Gray.swift in Sources */,
 				46553E9EB0DD3849C34221F8C333E8CF /* OperationChain.swift in Sources */,
 				8573B0E5C676C9E69B52B863B3008985 /* Shaders.metal in Sources */,
+				07869760249315480031443C /* CoreMLClassifierHandler.swift in Sources */,
 				0780397E248B6B520018A764 /* MetalVideoLoader.swift in Sources */,
 				0780397A248B40D90018A764 /* ImageCompositor.swift in Sources */,
 			);

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077B78212491A29700A74BAD /* SampleMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B78202491A29700A74BAD /* SampleMainViewController.swift */; };
+		077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */; };
 		07803982248B6FD30018A764 /* small.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803981248B6FD30018A764 /* small.mp4 */; };
 		07803984248B812B0018A764 /* bunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803983248B812B0018A764 /* bunny.mp4 */; };
 		07803986248B87450018A764 /* sample2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803985248B87450018A764 /* sample2.mp4 */; };
 		0783E395248A4C5400165B61 /* Pods_MetalCamera_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1E4339AAA8700C3D64939F /* Pods_MetalCamera_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* CameraSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		077B78202491A29700A74BAD /* SampleMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMainViewController.swift; sourceTree = "<group>"; };
+		077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationSampleViewController.swift; sourceTree = "<group>"; };
 		07803981248B6FD30018A764 /* small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = small.mp4; sourceTree = "<group>"; };
 		07803983248B812B0018A764 /* bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bunny.mp4; sourceTree = "<group>"; };
 		07803985248B87450018A764 /* sample2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2.mp4; sourceTree = "<group>"; };
@@ -40,7 +44,7 @@
 		607FACD01AFB9204008FA782 /* MetalCamera_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalCamera_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSampleViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -109,7 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				077B78202491A29700A74BAD /* SampleMainViewController.swift */,
+				607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */,
+				077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -345,7 +351,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */,
+				077B78212491A29700A74BAD /* SampleMainViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* CameraSampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +504,7 @@
 				INFOPLIST_FILE = MetalCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -512,7 +520,7 @@
 				INFOPLIST_FILE = MetalCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

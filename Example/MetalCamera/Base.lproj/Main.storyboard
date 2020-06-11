@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2R-Nq-7yd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,10 +7,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sample Main View Controller-->
+        <scene sceneID="T7M-XS-ebc">
+            <objects>
+                <tableViewController id="vws-Tw-T0v" customClass="SampleMainViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0pk-cd-X0F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SampleCell" id="qKf-Zh-2EW">
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qKf-Zh-2EW" id="vSn-vN-n1T">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vws-Tw-T0v" id="SpD-Tj-CBU"/>
+                            <outlet property="delegate" destination="vws-Tw-T0v" id="1EV-bw-wQJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KzK-qJ-Pyo"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJ6-YR-CZI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223.18840579710147" y="132.58928571428572"/>
+        </scene>
+        <!--Camera Sample View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraSampleViewController" id="vXZ-lx-hvc" customClass="CameraSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,7 +74,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="133"/>
+            <point key="canvasLocation" x="919" y="133"/>
+        </scene>
+        <!--Segmentation Sample View Controller-->
+        <scene sceneID="D9K-Hj-Wcn">
+            <objects>
+                <viewController storyboardIdentifier="SegmentationSampleViewController" id="eYQ-Ys-LmP" customClass="SegmentationSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eN5-7f-C89">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wcx-Nl-AKX" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wcx-Nl-AKX" firstAttribute="top" secondItem="eN5-7f-C89" secondAttribute="top" id="3Of-Db-eTF"/>
+                            <constraint firstItem="wcx-Nl-AKX" firstAttribute="leading" secondItem="eN5-7f-C89" secondAttribute="leading" id="6eK-ku-Sj8"/>
+                            <constraint firstAttribute="trailing" secondItem="wcx-Nl-AKX" secondAttribute="trailing" id="quR-mN-NY9"/>
+                            <constraint firstAttribute="bottom" secondItem="wcx-Nl-AKX" secondAttribute="bottom" id="rJd-0k-990"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Qv-WL-Vfp"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="wcx-Nl-AKX" id="CTz-AK-3kQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xwB-lC-h8g" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zuu-U7-1yc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i2R-Nq-7yd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7xl-qL-TYU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vws-Tw-T0v" kind="relationship" relationship="rootViewController" id="bwe-vl-6bX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a6-gh-4UL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-486" y="133"/>
         </scene>
     </scenes>
 </document>

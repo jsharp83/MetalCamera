@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 public protocol OperationChain: AnyObject {
     var targets: TargetContainer<OperationChain> { get }
@@ -31,6 +32,10 @@ extension OperationChain {
             target?.newTextureAvailable(texture)
         }
     }
+}
+
+public protocol CMSampleChain: OperationChain {
+    func newBufferAvailable(_ sampleBuffer: CMSampleBuffer)
 }
 
 public protocol AudioOperationChain: AnyObject {
