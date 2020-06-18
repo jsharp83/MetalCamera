@@ -1,6 +1,6 @@
 {
   "name": "MetalCamera",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "summary": "Metal based image and video processing on iOS",
   "swift_versions": "5.0",
   "description": "For more information, Check the repository please.",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/jsharp83/MetalCamera.git",
-    "tag": "0.1.4"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "13.0"
