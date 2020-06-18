@@ -15,8 +15,8 @@ public class MetalVideoWriter: OperationChain, AudioOperationChain {
 
     private var isRecording = false
     private var startTime: CMTime?
-    private var previousFrameTime = kCMTimeNegativeInfinity
-    private var previousAudioTime = kCMTimeNegativeInfinity
+    private var previousFrameTime = CMTime.negativeInfinity
+    private var previousAudioTime = CMTime.negativeInfinity
 
     private let assetWriter: AVAssetWriter
     private let assetWriterVideoInput: AVAssetWriterInput
@@ -161,9 +161,7 @@ extension MetalVideoWriter {
             CVPixelBufferLockBaseAddress(pixelBuffer, [])
 
             // FIXME: Has problem with Color format and orientation.
-            let kciOptions = [kCIImageColorSpace: CGColorSpaceCreateDeviceRGB(),
-                              kCIContextOutputPremultiplied: true,
-                              kCIContextUseSoftwareRenderer: false] as [String : Any]
+            let kciOptions = [CIImageOption.colorSpace: CGColorSpaceCreateDeviceRGB()] as [CIImageOption : Any]
             var ciImage = CIImage(mtlTexture: texture.texture, options: kciOptions)
             ciImage = ciImage?.oriented(.downMirrored)
             ciContext.render(ciImage!, to: pixelBuffer)

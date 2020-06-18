@@ -17,7 +17,7 @@ public class CoreMLClassifierHandler: CMSampleChain {
     var request: VNCoreMLRequest?
     let dropFrame: Bool
     var isProcessing: Bool = false
-    var currentTime = kCMTimeZero
+    var currentTime = CMTime.zero
     var startTime: CFAbsoluteTime = 0
     var frameTexture: Texture?
     let blender = AlphaBlend()

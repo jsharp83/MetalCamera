@@ -158,7 +158,7 @@ class AudioStreamPlayer: NSObject, AudioOperationChain {
         let blockBufferDataLength = CMBlockBufferGetDataLength(blockBuffer!)
 
         var blockBufferData  = [UInt8](repeating: 0, count: blockBufferDataLength)
-        let status = CMBlockBufferCopyDataBytes(blockBuffer!, 0, blockBufferDataLength, &blockBufferData)
+        let status = CMBlockBufferCopyDataBytes(blockBuffer!, atOffset: 0, dataLength: blockBufferDataLength, destination: &blockBufferData)
         guard status == noErr else { return nil }
         let data = Data(bytes: blockBufferData, count: blockBufferDataLength)
         return data

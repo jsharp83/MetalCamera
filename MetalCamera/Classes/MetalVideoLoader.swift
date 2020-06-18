@@ -21,7 +21,7 @@ public class MetalVideoLoader: OperationChain, AudioOperationChain {
     private let playAtActualSpeed: Bool
     private let useAudio: Bool
 
-    private var previousFrameTime = kCMTimeZero
+    private var previousFrameTime = CMTime.zero
     private var previousActualFrameTime = CFAbsoluteTimeGetCurrent()
 
     private var videoTextureCache: CVMetalTextureCache?

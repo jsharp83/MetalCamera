@@ -1,5 +1,5 @@
 PODS:
-  - MetalCamera (0.1.1)
+  - MetalCamera (0.1.4)
 
 DEPENDENCIES:
   - MetalCamera (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MetalCamera: 6843a01cab60d8d54189db23a8e32b0960c83e55
+  MetalCamera: 48406339472b25552cf0420b771586a548085746
 
 PODFILE CHECKSUM: 532096ce5afeffa4a6492f414d039b7ae737622c
 
