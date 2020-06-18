@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MetalCamera'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Metal based image and video processing on iOS'
   s.swift_version    = '5.0'
 

@@ -503,6 +503,7 @@
 				DEVELOPMENT_TEAM = RD66BYHLFJ;
 				INFOPLIST_FILE = MetalCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -519,6 +520,7 @@
 				DEVELOPMENT_TEAM = RD66BYHLFJ;
 				INFOPLIST_FILE = MetalCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eunchul.jeon.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
