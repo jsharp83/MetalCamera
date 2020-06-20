@@ -23,7 +23,15 @@ public class CoreMLClassifierHandler: CMSampleChain {
     let blender = AlphaBlend()
 
     // TODO: I need to make benchmark module.
-    public var runBenchmark = false
+    public var runBenchmark = true
+
+    var colorBuffer: MTLBuffer?
+    private var pipelineState: MTLRenderPipelineState!
+    private var render_target_vertex: MTLBuffer!
+    private var render_target_uniform: MTLBuffer!
+
+    public let testBuffer: [UInt] = [0, 0, 255]
+
 
     public init(_ model: MLModel, imageCropAndScaleOption: VNImageCropAndScaleOption = .centerCrop, dropFrame: Bool = true, maxClasses: Int = 255) throws {
         self.visionModel = try VNCoreMLModel(for: model)
@@ -32,6 +40,20 @@ public class CoreMLClassifierHandler: CMSampleChain {
 
         if maxClasses > randomColors.count {
             randomColors = generateRandomColors(maxClasses)
+        }
+
+        setupPiplineState()
+    }
+
+    private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
+        do {
+            let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "segmentation_render_target", colorPixelFormat)
+            pipelineState = try sharedMetalRenderingDevice.device.makeRenderPipelineState(descriptor: rpd)
+
+            render_target_vertex = sharedMetalRenderingDevice.makeRenderVertexBuffer(size: CGSize(width: 513, height: 513))
+            render_target_uniform = sharedMetalRenderingDevice.makeRenderUniformBuffer(CGSize(width: 513, height: 513))
+        } catch {
+            debugPrint(error)
         }
     }
 
@@ -61,6 +83,41 @@ public class CoreMLClassifierHandler: CMSampleChain {
         }
     }
 
+    func generateTexture(_ segmentationMap: MLMultiArray, _ row: Int, _ col: Int, _ targetClass: Int) -> Texture? {
+        let outputTexture = Texture(col, row, timestamp: currentTime, textureKey: "segmentation")
+
+        let renderPassDescriptor = MTLRenderPassDescriptor()
+        let attachment = renderPassDescriptor.colorAttachments[0]
+        attachment?.clearColor = MTLClearColorMake(1, 0, 0, 1)
+        attachment?.texture = outputTexture.texture
+        attachment?.loadAction = .clear
+        attachment?.storeAction = .store
+
+        let commandBuffer = sharedMetalRenderingDevice.commandQueue.makeCommandBuffer()
+        let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
+
+        commandEncoder?.setRenderPipelineState(pipelineState)
+
+        commandEncoder?.setVertexBuffer(render_target_vertex, offset: 0, index: 0)
+        commandEncoder?.setVertexBuffer(render_target_uniform, offset: 0, index: 1)
+
+        let segmentationBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: segmentationMap.dataPointer,
+                                                                              length: segmentationMap.count * MemoryLayout<Int32>.size,
+                                                                              options: [])!
+        commandEncoder?.setFragmentBuffer(segmentationBuffer, offset: 0, index: 0)
+
+        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: [Int32(targetClass), Int32(col), Int32(row)] as [Int32],
+                                                                         length: 3 * MemoryLayout<Int32>.size,
+                                                                         options: [])!
+        commandEncoder?.setFragmentBuffer(uniformBuffer, offset: 0, index: 1)
+
+        commandEncoder?.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+        commandEncoder?.endEncoding()
+        commandBuffer?.commit()
+
+        return outputTexture
+    }
+
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
         let inferenceTime = CFAbsoluteTimeGetCurrent() - startTime
 
@@ -78,25 +135,9 @@ public class CoreMLClassifierHandler: CMSampleChain {
 
             guard let frameTexture = frameTexture else { return }
 
-            let outputTexture = Texture(col, row, timestamp: currentTime, textureKey: "camera")
+            let targetClass = 15 // Human
 
-            var dataBuffer = [UInt8]()
-
-            // FIXME: I think there is better solution to use MLMultiArray's dataPointer than creating new dataBuffer.
-            for r in 0..<row {
-                for c in 0..<col {
-                    let index = r * col + c
-
-                    guard let classNum = segmenationMap[index] as? Int else {
-                        return
-                    }
-                    let classColor = randomColors[classNum]
-                    dataBuffer.append(contentsOf: classColor)
-                }
-            }
-
-            let region = MTLRegion(origin: MTLOrigin(x: 0, y: 0, z: 0), size: MTLSize(width: col, height: row, depth: 1))
-            outputTexture.texture.replace(region: region, mipmapLevel: 0, withBytes: dataBuffer, bytesPerRow: 4 * col)
+            guard let outputTexture = generateTexture(segmenationMap, row, col, targetClass) else { return }
 
             blender.newTextureAvailable(frameTexture, overlay: outputTexture) { [weak self](texture) in
                 self?.operationFinished(texture)
