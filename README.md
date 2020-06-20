@@ -74,8 +74,9 @@ do {
 }
 ```
 
-### Segmentation Test
+### Segmentation Test(DeepLabV3Int8LUT model, iPhone XS, avg 63ms)
 ![Segmentation](./docs/seg.gif)
+
 ```swift
 func loadCoreML() {
     do {
