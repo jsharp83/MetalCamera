@@ -72,3 +72,28 @@ fragment half4 alphaBlendFragment(TwoInputVertex fragmentInput [[stage_in]],
 
     return half4(mix(textureColor.rgb, textureColor2.rgb, textureColor2.a * half(uniform.mixturePercent)), textureColor.a);
 }
+
+typedef struct
+{
+     int32_t classNum;
+} SegmentationValue;
+
+typedef struct
+{
+    int32_t targetClass;
+    int32_t width;
+    int32_t height;
+} SegmentationUniform;
+
+fragment float4 segmentation_render_target(Vertex vertex_data [[ stage_in ]],
+                                           constant SegmentationValue *segmentation [[ buffer(0) ]],
+                                           constant SegmentationUniform& uniform [[ buffer(1) ]])
+
+{
+    int index = int(vertex_data.position.x) + int(vertex_data.position.y) * uniform.width;
+    if(segmentation[index].classNum == uniform.targetClass) {
+        return float4(1.0, 0, 0, 1.0);
+    }
+
+    return float4(0,0,0,1.0);
+};

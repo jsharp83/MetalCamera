@@ -45,7 +45,6 @@ public class AlphaBlend: OperationChain {
 
         let coordinates: [Float]
 
-        // [0.0, 0.0, xLimit, 0.0, 0.0, yLimit, xLimit, yLimit]
         if targetRatio > curRatio {
             let remainHeight = (Float(height) - Float(width) * targetRatio)/2.0
             let remainRatio = remainHeight/Float(height)
