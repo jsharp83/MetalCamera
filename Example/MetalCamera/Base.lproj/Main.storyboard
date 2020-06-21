@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2R-Nq-7yd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2R-Nq-7yd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="919" y="133"/>
         </scene>
-        <!--Segmentation Sample View Controller-->
+        <!--Base Camera View Controller-->
         <scene sceneID="D9K-Hj-Wcn">
             <objects>
-                <viewController storyboardIdentifier="SegmentationSampleViewController" id="eYQ-Ys-LmP" customClass="SegmentationSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BaseCameraViewController" id="eYQ-Ys-LmP" customClass="BaseCameraViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eN5-7f-C89">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,6 +123,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a6-gh-4UL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-486" y="133"/>
+        </scene>
+        <!--Segmentation Sample View Controller-->
+        <scene sceneID="XIG-nx-I3Q">
+            <objects>
+                <viewController storyboardIdentifier="SegmentationSampleViewController" id="thG-Yl-Ibo" customClass="SegmentationSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jca-ct-7mE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="9mN-ek-jEI" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9mN-ek-jEI" firstAttribute="top" secondItem="jca-ct-7mE" secondAttribute="top" id="Wib-dM-mht"/>
+                            <constraint firstAttribute="bottom" secondItem="9mN-ek-jEI" secondAttribute="bottom" id="aEK-hc-OVp"/>
+                            <constraint firstItem="9mN-ek-jEI" firstAttribute="leading" secondItem="jca-ct-7mE" secondAttribute="leading" id="iiG-Pd-q9l"/>
+                            <constraint firstAttribute="trailing" secondItem="9mN-ek-jEI" secondAttribute="trailing" id="vTC-Dd-tJo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bCF-Zu-RtR"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="9mN-ek-jEI" id="cNo-q9-Nep"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEt-Ah-ZWU" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="805"/>
+        </scene>
+        <!--Lookup Table Sample View Controller-->
+        <scene sceneID="jmx-RR-gkG">
+            <objects>
+                <viewController storyboardIdentifier="LookupTableSampleViewController" id="UHm-RN-egR" customClass="LookupTableSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vaL-tI-DYJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-RS-0Wz" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8uJ-RS-0Wz" firstAttribute="leading" secondItem="vaL-tI-DYJ" secondAttribute="leading" id="8T3-fw-5Fw"/>
+                            <constraint firstItem="8uJ-RS-0Wz" firstAttribute="top" secondItem="vaL-tI-DYJ" secondAttribute="top" id="9lb-aR-l3m"/>
+                            <constraint firstAttribute="bottom" secondItem="8uJ-RS-0Wz" secondAttribute="bottom" id="G5i-qD-fub"/>
+                            <constraint firstAttribute="trailing" secondItem="8uJ-RS-0Wz" secondAttribute="trailing" id="zQQ-ge-gOq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QSa-Ru-hoY"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="8uJ-RS-0Wz" id="Do0-xv-lMX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THs-Qr-2m0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="805"/>
         </scene>
     </scenes>
 </document>

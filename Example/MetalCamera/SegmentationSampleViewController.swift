@@ -11,25 +11,12 @@ import MetalCamera
 import CoreML
 import Vision
 
-class SegmentationSampleViewController: UIViewController {
-    @IBOutlet weak var preview: MetalVideoView!
-    var camera: MetalCamera!
+class SegmentationSampleViewController: BaseCameraViewController {
     let modelURL = URL(string: "https://ml-assets.apple.com/coreml/models/Image/ImageSegmentation/DeepLabV3/DeepLabV3Int8LUT.mlmodel")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCamera()
         loadCoreML()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        camera?.startCapture()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        camera?.stopCapture()
     }
 }
 
@@ -57,13 +44,5 @@ extension SegmentationSampleViewController {
         } catch{
             debugPrint(error)
         }
-    }
-}
-
-extension SegmentationSampleViewController {
-    func setupCamera() {
-        guard let camera = try? MetalCamera(videoOrientation: .portrait, isVideoMirrored: true) else { return }
-        self.camera = camera
-        camera-->preview
     }
 }

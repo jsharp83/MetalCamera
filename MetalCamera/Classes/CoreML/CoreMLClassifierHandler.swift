@@ -30,9 +30,6 @@ public class CoreMLClassifierHandler: CMSampleChain {
     private var render_target_vertex: MTLBuffer!
     private var render_target_uniform: MTLBuffer!
 
-    public let testBuffer: [UInt] = [0, 0, 255]
-
-
     public init(_ model: MLModel, imageCropAndScaleOption: VNImageCropAndScaleOption = .centerCrop, dropFrame: Bool = true, maxClasses: Int = 255) throws {
         self.visionModel = try VNCoreMLModel(for: model)
         self.imageCropAndScaleOption = imageCropAndScaleOption

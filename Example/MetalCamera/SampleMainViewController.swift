@@ -12,6 +12,7 @@ class SampleMainViewController: UITableViewController {
     let samples: [(title: String, identifier: String)] = [
         ("Camera, Composition and Recording","CameraSampleViewController"),
         ("Segmentation","SegmentationSampleViewController"),
+        ("Lookup Table", "LookupTableSampleViewController"),
     ]
 
     override func viewDidLoad() {

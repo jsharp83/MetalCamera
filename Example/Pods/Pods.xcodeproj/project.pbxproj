@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BFE158249EFEBC00C0487D /* Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE157249EFEBC00C0487D /* Lookup.swift */; };
 		0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */; };
 		10CA069AB735643C38199254F6355FEE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0E8122363B5D5A6761B6037A1A871 /* Colors.swift */; };
@@ -57,18 +58,19 @@
 
 /* Begin PBXFileReference section */
 		074007E8DF41ED8289C23A208C72F32B /* Gray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
+		07BFE157249EFEBC00C0487D /* Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup.swift; sourceTree = "<group>"; };
 		0C5CB9DF2142B49F3ED7F9F96028F5E6 /* MetalCamera-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetalCamera-Info.plist"; sourceTree = "<group>"; };
-		13185456AC29E2C28E9422BFB4EDC4BD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		13185456AC29E2C28E9422BFB4EDC4BD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		132011458C8EED76CC14CE8031840D84 /* MetalCamera-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MetalCamera-dummy.m"; sourceTree = "<group>"; };
 		146D87650EFD017B95BE6E2E286E495A /* CoreMLLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreMLLoader.swift; sourceTree = "<group>"; };
-		2545D8FA0B8631EDA3567A7B8321069A /* MetalCamera.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MetalCamera.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2545D8FA0B8631EDA3567A7B8321069A /* MetalCamera.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = MetalCamera.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		29C3EC20A6DA1D8E6FC7287F736EFCA8 /* ImageCompositor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCompositor.swift; sourceTree = "<group>"; };
-		2AA07404804303B78BBD7E2B8F9E84F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2AA07404804303B78BBD7E2B8F9E84F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		300ABD46CB49B37A8F3D5A3D66023F37 /* MetalCamera-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MetalCamera-prefix.pch"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		32EB00265E9EDF8F0D87DE95C0FC283E /* Rotation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		3B0D5BF6386967FBAB2187502719E93A /* AudioCompositor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioCompositor.swift; sourceTree = "<group>"; };
-		3D8866D196A9A6A1F200598BF00055C3 /* Shaders.metal */ = {isa = PBXFileReference; includeInIndex = 1; path = Shaders.metal; sourceTree = "<group>"; };
+		3D8866D196A9A6A1F200598BF00055C3 /* Shaders.metal */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		3DC110149CB3A27DCF4A7B07BF6AA88E /* MetalVideoView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalVideoView.swift; path = MetalCamera/Classes/MetalVideoView.swift; sourceTree = "<group>"; };
 		48563F984110514C804A8AC1BDDEFE88 /* Pods-MetalCamera_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		51C743ACCB3C64EADABBAAE49D5EF90C /* MetalVideoLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalVideoLoader.swift; path = MetalCamera/Classes/MetalVideoLoader.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		64913813AB819ACB5FC207C966DE8266 /* AlphaBlend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlphaBlend.swift; sourceTree = "<group>"; };
 		67D8D447E23721AC833295614760D320 /* Maths.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
 		6C0ED8938F049AA31106FA24DD19F579 /* MetalCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetalCamera.release.xcconfig; sourceTree = "<group>"; };
-		6E5568AF6DF48863DFB2C27B6D618166 /* Pods_MetalCamera_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetalCamera_Example.framework; path = "Pods-MetalCamera_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E5568AF6DF48863DFB2C27B6D618166 /* Pods_MetalCamera_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalCamera_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		788394B549609C4D3D4C9DF8A7739919 /* seg.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = seg.gif; path = docs/seg.gif; sourceTree = "<group>"; };
 		7D802AC6EEF211D59C69FC4FDC0BC403 /* CoreMLClassifierHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierHandler.swift; sourceTree = "<group>"; };
 		81E68363B62CE2509E598B9ECB92CEA9 /* Texture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Texture.swift; path = MetalCamera/Classes/Texture.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		919CDB7A6B90B64440139B0BBF16EB0C /* MetalCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MetalCamera.debug.xcconfig; sourceTree = "<group>"; };
 		91E190A0E166BAE9EA0201A36276270E /* Pods-MetalCamera_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetalCamera_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetalCamera_Example-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B1342D1720E1E3D0BAF3B9E68417BE16 /* Pods-MetalCamera_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetalCamera_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B3647072B663638059B992B6CD2F3C32 /* Pods-MetalCamera_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Example-Info.plist"; sourceTree = "<group>"; };
 		B4471C1E4FDA1F4F06D124F9742CC5F9 /* AudioStreamPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioStreamPlayer.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		BF45DCC3DEC7F56BE8400161D3D33640 /* Pods-MetalCamera_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetalCamera_Tests-umbrella.h"; sourceTree = "<group>"; };
 		C0133802E57D3451808D9C8FCFBC0606 /* Pods-MetalCamera_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetalCamera_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2B839595EFD0A9580F516F2FB207FA4 /* MetalVideoWriter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetalVideoWriter.swift; path = MetalCamera/Classes/MetalVideoWriter.swift; sourceTree = "<group>"; };
-		C76D26C83AD07E97532CD776C20B60F8 /* Pods_MetalCamera_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MetalCamera_Tests.framework; path = "Pods-MetalCamera_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76D26C83AD07E97532CD776C20B60F8 /* Pods_MetalCamera_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalCamera_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB88DDC24893B5D340371D2308DB9B34 /* MetalCamera.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MetalCamera.modulemap; sourceTree = "<group>"; };
 		D1B0E8122363B5D5A6761B6037A1A871 /* Colors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DF93287442D07DEE4D6BDC98A4F7858D /* Pods-MetalCamera_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MetalCamera_Tests.modulemap"; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 		E860EC594E9CCDD1DEC9E54F83877792 /* record_sample.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = record_sample.gif; path = docs/record_sample.gif; sourceTree = "<group>"; };
 		E91314DD68A9978F18990F0B4743C7B6 /* Pods-MetalCamera_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetalCamera_Example-frameworks.sh"; sourceTree = "<group>"; };
 		EEE223A4A7CE12AE93D0B04555E7C25B /* Pods-MetalCamera_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetalCamera_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FF7A8B92BF65A2172B89781FF2580ED1 /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MetalCamera.framework; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF7A8B92BF65A2172B89781FF2580ED1 /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				074007E8DF41ED8289C23A208C72F32B /* Gray.swift */,
 				29C3EC20A6DA1D8E6FC7287F736EFCA8 /* ImageCompositor.swift */,
 				32EB00265E9EDF8F0D87DE95C0FC283E /* Rotation.swift */,
+				07BFE157249EFEBC00C0487D /* Lookup.swift */,
 			);
 			name = operations;
 			path = MetalCamera/Classes/operations;
@@ -500,6 +503,7 @@
 				F5A6EBA784374D8E71EEDA54FA091FE6 /* Gray.swift in Sources */,
 				3FDE9709098704C73249706CB1698317 /* ImageCompositor.swift in Sources */,
 				2392E1A66B2323182877710002227762 /* Maths.swift in Sources */,
+				07BFE158249EFEBC00C0487D /* Lookup.swift in Sources */,
 				BE79A0EA8085F9C870241B11190D9724 /* MetalCamera-dummy.m in Sources */,
 				3C21E60337EF95ED72855986A1C8E260 /* MetalCamera.swift in Sources */,
 				158D4D2FF10EAE03821C2BA027518996 /* MetalRenderingDevice.swift in Sources */,
@@ -584,8 +588,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
