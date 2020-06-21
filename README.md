@@ -14,6 +14,14 @@ There are many ways to use the GPU, including CIFilter, but it's not open or dif
 
 The main goal of this repository is to provide an interface and test performance to develop and apply it to actual services more easily when you have an idea about image processing and machine learning in the iOS environment.
 
+At this stage, I'm developing to provide the following functions simply.
+* Camera input/output Handling
+* Save image frame to video
+* Basic image processing and filter
+* Download and processing CoreML model
+* Visualize result of CoreML model
+* Benchmark algorithm.
+
 
 There are still a lot of bugs and many things to implement, 
 but I created a repository because I wanted to develop camera and vision feature in iOS with many people.
@@ -75,7 +83,7 @@ do {
 ```
 
 ### Segmentation Test(DeepLabV3Int8LUT model, iPhone XS, avg 63ms)
-![Segmentation](./docs/seg.gif)
+![Segmentation](https://user-images.githubusercontent.com/160281/85217231-5e4b1a00-b3c9-11ea-9317-7df77de33cf3.gif)
 
 ```swift
 func loadCoreML() {
@@ -106,7 +114,7 @@ func setupModelHandler(_ model: MLModel) {
 ```
 
 ### Composite images or video and Rotation
-![demo](./docs/record_sample.gif)
+![demo](https://user-images.githubusercontent.com/160281/85217243-7327ad80-b3c9-11ea-9162-d29c8aa1864e.gif)
 
 ```swift
 let rotation90 = RotationOperation(.degree90_flip)
@@ -130,7 +138,8 @@ camera-->rotation90-->gray-->imageCompositor-->videoCompositor-->preview
 ```
 
 ### Filter
-TBD
+* Lookup Filter
+[lookup](https://user-images.githubusercontent.com/160281/85217209-29d75e00-b3c9-11ea-9c5b-ad448654df79.gif)
 
 ### Recording video and audio
 ```swift
