@@ -139,7 +139,7 @@ camera-->rotation90-->gray-->imageCompositor-->videoCompositor-->preview
 
 ### Filter
 * Lookup Filter
-[lookup](https://user-images.githubusercontent.com/160281/85217209-29d75e00-b3c9-11ea-9c5b-ad448654df79.gif)
+![lookup](https://user-images.githubusercontent.com/160281/85217209-29d75e00-b3c9-11ea-9c5b-ad448654df79.gif)
 
 ### Recording video and audio
 ```swift
