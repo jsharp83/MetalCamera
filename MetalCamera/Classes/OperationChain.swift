@@ -23,7 +23,7 @@ extension OperationChain {
         targets.remove(target)
     }
 
-    func removeAllTargets() {
+    public func removeAllTargets() {
         targets.removeAll()
     }
 

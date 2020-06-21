@@ -13,6 +13,10 @@
 		07803984248B812B0018A764 /* bunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803983248B812B0018A764 /* bunny.mp4 */; };
 		07803986248B87450018A764 /* sample2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803985248B87450018A764 /* sample2.mp4 */; };
 		0783E395248A4C5400165B61 /* Pods_MetalCamera_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1E4339AAA8700C3D64939F /* Pods_MetalCamera_Example.framework */; };
+		07BFE14F249EF49F00C0487D /* BaseCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */; };
+		07BFE151249EF7B700C0487D /* LookupTableSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */; };
+		07BFE155249EF9B400C0487D /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 07BFE153249EF9B400C0487D /* lookup_amatorka.png */; };
+		07BFE156249EF9B400C0487D /* lookup_miss_etikate.png in Resources */ = {isa = PBXBuildFile; fileRef = 07BFE154249EF9B400C0487D /* lookup_miss_etikate.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* CameraSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -38,6 +42,10 @@
 		07803981248B6FD30018A764 /* small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = small.mp4; sourceTree = "<group>"; };
 		07803983248B812B0018A764 /* bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bunny.mp4; sourceTree = "<group>"; };
 		07803985248B87450018A764 /* sample2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2.mp4; sourceTree = "<group>"; };
+		07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraViewController.swift; sourceTree = "<group>"; };
+		07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupTableSampleViewController.swift; sourceTree = "<group>"; };
+		07BFE153249EF9B400C0487D /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
+		07BFE154249EF9B400C0487D /* lookup_miss_etikate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_miss_etikate.png; sourceTree = "<group>"; };
 		328E928958AA8AA2CD8A6090 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3B1E4339AAA8700C3D64939F /* Pods_MetalCamera_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalCamera_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE7CE449BF4B548976F96CD /* Pods-MetalCamera_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalCamera_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MetalCamera_Tests/Pods-MetalCamera_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 				077B78202491A29700A74BAD /* SampleMainViewController.swift */,
 				607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */,
 				077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */,
+				07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */,
+				07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -126,6 +136,8 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07BFE153249EF9B400C0487D /* lookup_amatorka.png */,
+				07BFE154249EF9B400C0487D /* lookup_miss_etikate.png */,
 				07803981248B6FD30018A764 /* small.mp4 */,
 				07803985248B87450018A764 /* sample2.mp4 */,
 				07803983248B812B0018A764 /* bunny.mp4 */,
@@ -263,10 +275,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BFE155249EF9B400C0487D /* lookup_amatorka.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				07803982248B6FD30018A764 /* small.mp4 in Resources */,
 				07803986248B87450018A764 /* sample2.mp4 in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				07BFE156249EF9B400C0487D /* lookup_miss_etikate.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				07803984248B812B0018A764 /* bunny.mp4 in Resources */,
 			);
@@ -352,6 +366,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */,
+				07BFE151249EF7B700C0487D /* LookupTableSampleViewController.swift in Sources */,
+				07BFE14F249EF49F00C0487D /* BaseCameraViewController.swift in Sources */,
 				077B78212491A29700A74BAD /* SampleMainViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* CameraSampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
