@@ -11,9 +11,9 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
     public var logFPS = false
 
     public let captureSession: AVCaptureSession
-    public let inputCamera: AVCaptureDevice!
+    public var inputCamera: AVCaptureDevice!
 
-    let videoInput: AVCaptureDeviceInput!
+    var videoInput: AVCaptureDeviceInput!
     let videoOutput: AVCaptureVideoDataOutput!
     var videoTextureCache: CVMetalTextureCache?
 
@@ -35,6 +35,9 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
     public var audioTargets = TargetContainer<AudioOperationChain>()
 
     let useMic: Bool
+    var currentPosition = AVCaptureDevice.Position.front
+    var videoOrientation: AVCaptureVideoOrientation?
+    var isVideoMirrored: Bool?
 
     public init(sessionPreset: AVCaptureSession.Preset = .hd1280x720,
                 position: AVCaptureDevice.Position = .front,
@@ -42,27 +45,11 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
                 useMic: Bool = false,
                 videoOrientation: AVCaptureVideoOrientation? = nil,
                 isVideoMirrored: Bool? = nil) throws {
-        guard let device = position.device() else {
-            throw MetalCameraError.noVideoDevice
-        }
-
-        inputCamera = device
         self.sourceKey = sourceKey
-
         self.useMic = useMic
 
         captureSession = AVCaptureSession()
         captureSession.beginConfiguration()
-
-        do {
-            self.videoInput = try AVCaptureDeviceInput(device: inputCamera)
-        } catch {
-            throw MetalCameraError.deviceInputInitialize
-        }
-
-        if (captureSession.canAddInput(videoInput)) {
-            captureSession.addInput(videoInput)
-        }
 
         videoOutput = AVCaptureVideoDataOutput()
         videoOutput.videoSettings = [kCVPixelBufferMetalCompatibilityKey as String: true,
@@ -71,6 +58,17 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
         if captureSession.canAddOutput(videoOutput) {
             captureSession.addOutput(videoOutput)
         }
+
+        self.videoOrientation = videoOrientation
+        self.isVideoMirrored = isVideoMirrored
+
+        super.init()
+
+        defer {
+            captureSession.commitConfiguration()
+        }
+
+        try updateVideoInput(position: position)
 
         if useMic {
             guard let audio = AVCaptureDevice.default(for: .audio),
@@ -97,17 +95,7 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
 
         CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, sharedMetalRenderingDevice.device, nil, &videoTextureCache)
 
-        super.init()
         videoOutput.setSampleBufferDelegate(self, queue: cameraProcessingQueue)
-
-        if let orientation = videoOrientation {
-            videoOutput.connection(with: .video)?.videoOrientation = orientation
-        }
-
-        if let isVideoMirrored = isVideoMirrored {
-            videoOutput.connection(with: .video)?.isVideoMirrored = isVideoMirrored
-        }
-
         audioOutput?.setSampleBufferDelegate(self, queue: cameraProcessingQueue)
     }
 
@@ -135,6 +123,44 @@ public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
         let _ = frameRenderingSemaphore.wait(timeout:DispatchTime.distantFuture)
         captureSession.stopRunning()
         self.frameRenderingSemaphore.signal()
+    }
+
+    private func updateVideoInput(position: AVCaptureDevice.Position) throws {
+        guard let device = position.device() else {
+            throw MetalCameraError.noVideoDevice
+        }
+
+        inputCamera = device
+
+        if videoInput != nil {
+            captureSession.removeInput(videoInput)
+        }
+
+        do {
+            self.videoInput = try AVCaptureDeviceInput(device: inputCamera)
+        } catch {
+            throw MetalCameraError.deviceInputInitialize
+        }
+
+        if (captureSession.canAddInput(videoInput)) {
+            captureSession.addInput(videoInput)
+        }
+
+        if let orientation = videoOrientation {
+            videoOutput.connection(with: .video)?.videoOrientation = orientation
+        }
+
+        if let isVideoMirrored = isVideoMirrored, position == .front {
+            videoOutput.connection(with: .video)?.isVideoMirrored = isVideoMirrored
+        }
+
+        currentPosition = position
+    }
+
+    public func switchPosition() throws {
+        captureSession.beginConfiguration()
+        try updateVideoInput(position: currentPosition == .front ? .back : .front)
+        captureSession.commitConfiguration()
     }
 
     public func newTextureAvailable(_ texture: Texture) {}
