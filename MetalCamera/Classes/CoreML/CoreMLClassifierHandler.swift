@@ -38,17 +38,15 @@ public class CoreMLClassifierHandler: CMSampleChain {
         if maxClasses > randomColors.count {
             randomColors = generateRandomColors(maxClasses)
         }
-
-        setupPiplineState()
     }
 
-    private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
+    private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm, width: Int, height: Int) {
         do {
             let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "segmentation_render_target", colorPixelFormat)
             pipelineState = try sharedMetalRenderingDevice.device.makeRenderPipelineState(descriptor: rpd)
 
-            render_target_vertex = sharedMetalRenderingDevice.makeRenderVertexBuffer(size: CGSize(width: 513, height: 513))
-            render_target_uniform = sharedMetalRenderingDevice.makeRenderUniformBuffer(CGSize(width: 513, height: 513))
+            render_target_vertex = sharedMetalRenderingDevice.makeRenderVertexBuffer(size: CGSize(width: width, height: height))
+            render_target_uniform = sharedMetalRenderingDevice.makeRenderUniformBuffer(CGSize(width: width, height: height))
         } catch {
             debugPrint(error)
         }
@@ -81,6 +79,10 @@ public class CoreMLClassifierHandler: CMSampleChain {
     }
 
     func generateTexture(_ segmentationMap: MLMultiArray, _ row: Int, _ col: Int, _ targetClass: Int) -> Texture? {
+        if pipelineState == nil {
+            setupPiplineState(width: col, height: row)
+        }
+
         let outputTexture = Texture(col, row, timestamp: currentTime, textureKey: "segmentation")
 
         let renderPassDescriptor = MTLRenderPassDescriptor()

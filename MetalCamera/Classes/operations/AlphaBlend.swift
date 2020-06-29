@@ -10,17 +10,16 @@ import Foundation
 public let standardImageVertices: [Float] = [-1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0]
 public let standardTextureCoordinate: [Float] = [0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]
 
-//[0.0, 0.0, xLimit, 0.0, 0.0, yLimit, xLimit, yLimit]
-
 public class AlphaBlend: OperationChain {
     public var targets = TargetContainer<OperationChain>()
 
     private var pipelineState: MTLRenderPipelineState!
     private let textureInputSemaphore = DispatchSemaphore(value:1)
-    private let uniformValues: [Float] = [0.5]
 
     private var textureBuffer1: MTLBuffer?
     private var textureBuffer2: MTLBuffer?
+
+    public var alphaValue: Float = 0.5
 
     public init() {
         setup()
@@ -102,8 +101,8 @@ public class AlphaBlend: OperationChain {
 
         commandEncoder?.setFragmentTexture(base.texture, index: 0)
         commandEncoder?.setFragmentTexture(overlay.texture, index: 1)
-        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: uniformValues,
-                                                                         length: uniformValues.count * MemoryLayout<Float>.size,
+        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: [alphaValue],
+                                                                         length: 1 * MemoryLayout<Float>.size,
                                                                          options: [])!
         commandEncoder?.setFragmentBuffer(uniformBuffer, offset: 0, index: 1)
 
