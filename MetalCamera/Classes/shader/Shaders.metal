@@ -73,6 +73,22 @@ fragment half4 alphaBlendFragment(TwoInputVertex fragmentInput [[stage_in]],
     return half4(mix(textureColor.rgb, textureColor2.rgb, textureColor2.a * half(uniform.mixturePercent)), textureColor.a);
 }
 
+fragment half4 maskFragment(TwoInputVertex fragmentInput [[stage_in]],
+                            texture2d<half> inputTexture [[texture(0)]],
+                            texture2d<half> inputTexture2 [[texture(1)]])
+{
+    constexpr sampler quadSampler;
+    half4 textureColor = inputTexture.sample(quadSampler, fragmentInput.textureCoordinate);
+    constexpr sampler quadSampler2;
+    half4 textureColor2 = inputTexture2.sample(quadSampler, fragmentInput.textureCoordinate2);
+
+    if(textureColor2.r + textureColor2.g + textureColor2.b > 0) {
+        return textureColor;
+    } else {
+        return half4(0, 0, 0 ,0);
+    }
+}
+
 typedef struct
 {
     int32_t classNum;

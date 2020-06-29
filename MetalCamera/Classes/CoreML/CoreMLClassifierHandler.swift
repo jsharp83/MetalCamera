@@ -10,6 +10,11 @@ import AVFoundation
 import CoreML
 import Vision
 
+public enum ClassificationResultType {
+    case mask
+    case alphaBlend
+}
+
 public class CoreMLClassifierHandler: CMSampleChain {
     public var targets = TargetContainer<OperationChain>()
     let visionModel: VNCoreMLModel
@@ -20,7 +25,8 @@ public class CoreMLClassifierHandler: CMSampleChain {
     var currentTime = CMTime.zero
     var startTime: CFAbsoluteTime = 0
     var frameTexture: Texture?
-    let blender = AlphaBlend()
+
+    let resultOperation: TwoTextureOperationChain
 
     // TODO: I need to make benchmark module.
     public var runBenchmark = true
@@ -30,10 +36,12 @@ public class CoreMLClassifierHandler: CMSampleChain {
     private var render_target_vertex: MTLBuffer!
     private var render_target_uniform: MTLBuffer!
 
-    public init(_ model: MLModel, imageCropAndScaleOption: VNImageCropAndScaleOption = .centerCrop, dropFrame: Bool = true, maxClasses: Int = 255) throws {
+    public init(_ model: MLModel, imageCropAndScaleOption: VNImageCropAndScaleOption = .centerCrop, dropFrame: Bool = true, maxClasses: Int = 255, resultType: ClassificationResultType = .alphaBlend) throws {
         self.visionModel = try VNCoreMLModel(for: model)
         self.imageCropAndScaleOption = imageCropAndScaleOption
         self.dropFrame = dropFrame
+
+        resultOperation = resultType == .mask ? Mask() : AlphaBlend()
 
         if maxClasses > randomColors.count {
             randomColors = generateRandomColors(maxClasses)
@@ -138,7 +146,7 @@ public class CoreMLClassifierHandler: CMSampleChain {
 
             guard let outputTexture = generateTexture(segmenationMap, row, col, targetClass) else { return }
 
-            blender.newTextureAvailable(frameTexture, overlay: outputTexture) { [weak self](texture) in
+            resultOperation.newTextureAvailable(frameTexture, outputTexture) { [weak self](texture) in
                 self?.operationFinished(texture)
             }
         }

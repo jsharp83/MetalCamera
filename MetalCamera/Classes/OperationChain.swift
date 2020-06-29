@@ -34,6 +34,16 @@ extension OperationChain {
     }
 }
 
+public protocol TwoTextureOperationChain: OperationChain {
+    func newTextureAvailable(_ source1: Texture, _ source2: Texture, completion: @escaping ((_ texture: Texture) -> Void))
+}
+
+extension TwoTextureOperationChain {
+    func newTextureAvailable(_ texture: Texture) {
+        fatalError("Should be use newTextureAvailable(_ source1: Texture, source2: Texture, completion: @escaping (() -> Void)) func")
+    }
+}
+
 public protocol CMSampleChain: OperationChain {
     func newBufferAvailable(_ sampleBuffer: CMSampleBuffer)
 }
