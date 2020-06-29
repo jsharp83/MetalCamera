@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0796252024A9995100936682 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796251F24A9995100936682 /* Mask.swift */; };
 		07BFE158249EFEBC00C0487D /* Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE157249EFEBC00C0487D /* Lookup.swift */; };
 		0CFB5FD1253EE89C81978ED1130EDECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		0F59279B2A6CE27C94E0016BB1EEEACD /* Pods-MetalCamera_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9759DA860ABA402B29BDC3B1BC349604 /* Pods-MetalCamera_Example-dummy.m */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		074007E8DF41ED8289C23A208C72F32B /* Gray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
+		0796251F24A9995100936682 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
 		07BFE157249EFEBC00C0487D /* Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup.swift; sourceTree = "<group>"; };
 		0C5CB9DF2142B49F3ED7F9F96028F5E6 /* MetalCamera-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MetalCamera-Info.plist"; sourceTree = "<group>"; };
 		13185456AC29E2C28E9422BFB4EDC4BD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				64913813AB819ACB5FC207C966DE8266 /* AlphaBlend.swift */,
+				0796251F24A9995100936682 /* Mask.swift */,
 				074007E8DF41ED8289C23A208C72F32B /* Gray.swift */,
 				29C3EC20A6DA1D8E6FC7287F736EFCA8 /* ImageCompositor.swift */,
 				32EB00265E9EDF8F0D87DE95C0FC283E /* Rotation.swift */,
@@ -508,6 +511,7 @@
 				3C21E60337EF95ED72855986A1C8E260 /* MetalCamera.swift in Sources */,
 				158D4D2FF10EAE03821C2BA027518996 /* MetalRenderingDevice.swift in Sources */,
 				2D19CF64ADAC31DE9F6F8BFDCA4E0AF9 /* MetalVideoLoader.swift in Sources */,
+				0796252024A9995100936682 /* Mask.swift in Sources */,
 				809891195594DC2D1B863BE0284CD5A8 /* MetalVideoView.swift in Sources */,
 				AD9B0D7D4A25F3C6E4BBCD61DDBEC82C /* MetalVideoWriter.swift in Sources */,
 				3785F3FF6DDFBA6B76EC2ACAF99D57D1 /* OperationChain.swift in Sources */,
