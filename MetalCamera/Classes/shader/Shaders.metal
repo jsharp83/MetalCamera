@@ -114,6 +114,56 @@ fragment float4 segmentation_render_target(Vertex vertex_data [[ stage_in ]],
     return float4(0,0,0,1.0);
 };
 
+typedef struct
+{
+    float value;
+} PoseValue;
+
+typedef struct
+{
+    int32_t classNum;
+    int32_t width;
+    int32_t height;
+} PoseUniform;
+
+fragment half4 posenet_render_target(Vertex vertex_data [[ stage_in ]],
+                                      texture2d<half> inputTexture [[texture(0)]],
+                                      constant PoseValue *pose [[ buffer(0) ]],
+                                      constant PoseUniform& uniform [[ buffer(1) ]])
+
+{
+    //    int index = int(vertex_data.position.x) + int(vertex_data.position.y) * uniform.width;
+//    if(segmentation[index].classNum == uniform.targetClass) {
+//        return float4(1.0, 0, 0, 1.0);
+//    }
+
+    constexpr sampler quadSampler;
+    half4 base = inputTexture.sample(quadSampler, vertex_data.text_coord);
+
+    if(vertex_data.position.x < uniform.width * 4 &&
+       vertex_data.position.y < uniform.height * 4) {
+
+        if(int(vertex_data.position.x) % 4 == 0 &&
+           int(vertex_data.position.y) % 4 == 0) {
+
+            int col = int(vertex_data.position.x) / 4;
+            int row = int(vertex_data.position.y) / 4;
+
+            for(int i = 0 ; i < uniform.classNum; i++) {
+                int index = uniform.width * uniform.height * i + row * uniform.width + col;
+                if(pose[index].value > 0.9) {
+                    return half4(1.0, 0.0, 0.0, 1.0);
+                }
+            }
+
+            return half4(0.0, 0.0, 1.0, 1.0);
+        }
+    }
+
+    return base;
+};
+
+
 fragment half4 lookupFragment(TwoInputVertex fragmentInput [[stage_in]],
                               texture2d<half> inputTexture [[texture(0)]],
                               texture2d<half> inputTexture2 [[texture(1)]],

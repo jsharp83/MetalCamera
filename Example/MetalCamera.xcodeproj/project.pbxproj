@@ -13,6 +13,7 @@
 		07803984248B812B0018A764 /* bunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803983248B812B0018A764 /* bunny.mp4 */; };
 		07803986248B87450018A764 /* sample2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803985248B87450018A764 /* sample2.mp4 */; };
 		0783E395248A4C5400165B61 /* Pods_MetalCamera_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1E4339AAA8700C3D64939F /* Pods_MetalCamera_Example.framework */; };
+		0796252224A9A9BB00936682 /* PoseNetSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796252124A9A9BB00936682 /* PoseNetSampleViewController.swift */; };
 		07BFE14F249EF49F00C0487D /* BaseCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */; };
 		07BFE151249EF7B700C0487D /* LookupTableSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */; };
 		07BFE155249EF9B400C0487D /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 07BFE153249EF9B400C0487D /* lookup_amatorka.png */; };
@@ -42,6 +43,7 @@
 		07803981248B6FD30018A764 /* small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = small.mp4; sourceTree = "<group>"; };
 		07803983248B812B0018A764 /* bunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bunny.mp4; sourceTree = "<group>"; };
 		07803985248B87450018A764 /* sample2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2.mp4; sourceTree = "<group>"; };
+		0796252124A9A9BB00936682 /* PoseNetSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNetSampleViewController.swift; sourceTree = "<group>"; };
 		07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCameraViewController.swift; sourceTree = "<group>"; };
 		07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupTableSampleViewController.swift; sourceTree = "<group>"; };
 		07BFE153249EF9B400C0487D /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				077B78202491A29700A74BAD /* SampleMainViewController.swift */,
 				607FACD71AFB9204008FA782 /* CameraSampleViewController.swift */,
 				077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */,
+				0796252124A9A9BB00936682 /* PoseNetSampleViewController.swift */,
 				07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */,
 				07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -367,6 +370,7 @@
 			files = (
 				077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */,
 				07BFE151249EF7B700C0487D /* LookupTableSampleViewController.swift in Sources */,
+				0796252224A9A9BB00936682 /* PoseNetSampleViewController.swift in Sources */,
 				07BFE14F249EF49F00C0487D /* BaseCameraViewController.swift in Sources */,
 				077B78212491A29700A74BAD /* SampleMainViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* CameraSampleViewController.swift in Sources */,

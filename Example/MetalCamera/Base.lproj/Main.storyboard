@@ -184,5 +184,35 @@
             </objects>
             <point key="canvasLocation" x="830" y="805"/>
         </scene>
+        <!--Pose Net Sample View Controller-->
+        <scene sceneID="a9e-JI-yK4">
+            <objects>
+                <viewController storyboardIdentifier="PoseNetSampleViewController" id="WmH-KU-5uO" customClass="PoseNetSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uy5-fQ-i6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="R74-sL-1TI" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="R74-sL-1TI" secondAttribute="trailing" id="49u-dA-6TM"/>
+                            <constraint firstItem="R74-sL-1TI" firstAttribute="leading" secondItem="Uy5-fQ-i6f" secondAttribute="leading" id="Iid-pa-agU"/>
+                            <constraint firstAttribute="bottom" secondItem="R74-sL-1TI" secondAttribute="bottom" id="bXJ-ZH-P5w"/>
+                            <constraint firstItem="R74-sL-1TI" firstAttribute="top" secondItem="Uy5-fQ-i6f" secondAttribute="top" id="tVH-CB-LEV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zoj-yf-Xh4"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="R74-sL-1TI" id="4Ep-mm-gNp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ax-rv-ld3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="805"/>
+        </scene>
     </scenes>
 </document>
