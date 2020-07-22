@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07695BFE24C6DAAF003F4979 /* MPSSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695BFD24C6DAAF003F4979 /* MPSSampleViewController.swift */; };
 		077B78212491A29700A74BAD /* SampleMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B78202491A29700A74BAD /* SampleMainViewController.swift */; };
 		077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */; };
 		07803982248B6FD30018A764 /* small.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07803981248B6FD30018A764 /* small.mp4 */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07695BFD24C6DAAF003F4979 /* MPSSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSSampleViewController.swift; sourceTree = "<group>"; };
 		077B78202491A29700A74BAD /* SampleMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMainViewController.swift; sourceTree = "<group>"; };
 		077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationSampleViewController.swift; sourceTree = "<group>"; };
 		07803981248B6FD30018A764 /* small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = small.mp4; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				077B78222491AD6200A74BAD /* SegmentationSampleViewController.swift */,
 				0796252124A9A9BB00936682 /* PoseNetSampleViewController.swift */,
 				07BFE150249EF7B700C0487D /* LookupTableSampleViewController.swift */,
+				07695BFD24C6DAAF003F4979 /* MPSSampleViewController.swift */,
 				07BFE14E249EF49F00C0487D /* BaseCameraViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				077B78232491AD6200A74BAD /* SegmentationSampleViewController.swift in Sources */,
+				07695BFE24C6DAAF003F4979 /* MPSSampleViewController.swift in Sources */,
 				07BFE151249EF7B700C0487D /* LookupTableSampleViewController.swift in Sources */,
 				0796252224A9A9BB00936682 /* PoseNetSampleViewController.swift in Sources */,
 				07BFE14F249EF49F00C0487D /* BaseCameraViewController.swift in Sources */,

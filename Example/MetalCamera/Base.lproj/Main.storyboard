@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2R-Nq-7yd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i2R-Nq-7yd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -183,6 +183,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THs-Qr-2m0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="805"/>
+        </scene>
+        <!--Sample View Controller-->
+        <scene sceneID="bhp-rJ-XiF">
+            <objects>
+                <viewController storyboardIdentifier="MPSSampleViewController" id="Owm-Dc-0a2" customClass="MPSSampleViewController" customModule="MetalCamera_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JdU-VC-a3C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="lia-gl-fTC" customClass="MetalVideoView" customModule="MetalCamera">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lia-gl-fTC" secondAttribute="trailing" id="APV-Mc-U4S"/>
+                            <constraint firstItem="lia-gl-fTC" firstAttribute="leading" secondItem="JdU-VC-a3C" secondAttribute="leading" id="Hdu-ub-Z98"/>
+                            <constraint firstItem="lia-gl-fTC" firstAttribute="top" secondItem="JdU-VC-a3C" secondAttribute="top" id="TBL-4O-Tom"/>
+                            <constraint firstAttribute="bottom" secondItem="lia-gl-fTC" secondAttribute="bottom" id="jp8-LS-iAF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G4f-U8-qpw"/>
+                    </view>
+                    <connections>
+                        <outlet property="preview" destination="lia-gl-fTC" id="FNt-01-Nus"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pa0-Ka-GWt" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="805"/>
         </scene>
         <!--Pose Net Sample View Controller-->
         <scene sceneID="a9e-JI-yK4">
