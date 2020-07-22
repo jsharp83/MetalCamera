@@ -14,6 +14,7 @@ class SampleMainViewController: UITableViewController {
         ("Segmentation","SegmentationSampleViewController"),
         ("Lookup Table", "LookupTableSampleViewController"),
         ("PoseNet", "PoseNetSampleViewController"),
+        ("Metal Performance Shader", "MPSSampleViewController")
     ]
 
     override func viewDidLoad() {
