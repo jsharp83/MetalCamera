@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070AD7D424E65F76000B1B19 /* Joint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD7D324E65F76000B1B19 /* Joint.swift */; };
+		070AD7D624E65FDA000B1B19 /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD7D524E65FDA000B1B19 /* Pose.swift */; };
+		070AD7D824E66030000B1B19 /* PoseNetOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD7D724E66030000B1B19 /* PoseNetOutput.swift */; };
 		07695C0024C6DB91003F4979 /* Kernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07695BFF24C6DB91003F4979 /* Kernel.swift */; };
 		0796252024A9995100936682 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796251F24A9995100936682 /* Mask.swift */; };
 		0796252424A9AAC400936682 /* CoreMLPoseNetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796252324A9AAC400936682 /* CoreMLPoseNetHandler.swift */; };
@@ -60,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070AD7D324E65F76000B1B19 /* Joint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joint.swift; sourceTree = "<group>"; };
+		070AD7D524E65FDA000B1B19 /* Pose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
+		070AD7D724E66030000B1B19 /* PoseNetOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNetOutput.swift; sourceTree = "<group>"; };
 		074007E8DF41ED8289C23A208C72F32B /* Gray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
 		07695BFF24C6DB91003F4979 /* Kernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kernel.swift; sourceTree = "<group>"; };
 		0796251F24A9995100936682 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
@@ -148,6 +154,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070AD7D224E65F4C000B1B19 /* PoseNet */ = {
+			isa = PBXGroup;
+			children = (
+				0796252324A9AAC400936682 /* CoreMLPoseNetHandler.swift */,
+				070AD7D324E65F76000B1B19 /* Joint.swift */,
+				070AD7D524E65FDA000B1B19 /* Pose.swift */,
+				070AD7D724E66030000B1B19 /* PoseNetOutput.swift */,
+			);
+			path = PoseNet;
+			sourceTree = "<group>";
+		};
 		369C1880F612601AB7FBF030B7303618 /* shader */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,9 +189,9 @@
 		6A5B971D70978014DBC228BC959A275D /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				070AD7D224E65F4C000B1B19 /* PoseNet */,
 				146D87650EFD017B95BE6E2E286E495A /* CoreMLLoader.swift */,
 				7D802AC6EEF211D59C69FC4FDC0BC403 /* CoreMLClassifierHandler.swift */,
-				0796252324A9AAC400936682 /* CoreMLPoseNetHandler.swift */,
 			);
 			name = CoreML;
 			path = MetalCamera/Classes/CoreML;
@@ -506,6 +523,7 @@
 				A4A0E57A99E26E596E2507983D38E1F3 /* AudioCompositor.swift in Sources */,
 				EEF397BEBD88B124CAADED726B5B4552 /* AudioStreamPlayer.swift in Sources */,
 				10CA069AB735643C38199254F6355FEE /* Colors.swift in Sources */,
+				070AD7D824E66030000B1B19 /* PoseNetOutput.swift in Sources */,
 				831E3E81D6CB767FB0DA038C67AC3D78 /* CoreMLClassifierHandler.swift in Sources */,
 				A68CD1FB64D762F5BF7AA707A9A091B5 /* CoreMLLoader.swift in Sources */,
 				CAB58D89AF8850403E2DEC8F9D87EF67 /* extensions.swift in Sources */,
@@ -517,6 +535,7 @@
 				BE79A0EA8085F9C870241B11190D9724 /* MetalCamera-dummy.m in Sources */,
 				3C21E60337EF95ED72855986A1C8E260 /* MetalCamera.swift in Sources */,
 				158D4D2FF10EAE03821C2BA027518996 /* MetalRenderingDevice.swift in Sources */,
+				070AD7D424E65F76000B1B19 /* Joint.swift in Sources */,
 				2D19CF64ADAC31DE9F6F8BFDCA4E0AF9 /* MetalVideoLoader.swift in Sources */,
 				0796252024A9995100936682 /* Mask.swift in Sources */,
 				07695C0024C6DB91003F4979 /* Kernel.swift in Sources */,
@@ -524,6 +543,7 @@
 				AD9B0D7D4A25F3C6E4BBCD61DDBEC82C /* MetalVideoWriter.swift in Sources */,
 				3785F3FF6DDFBA6B76EC2ACAF99D57D1 /* OperationChain.swift in Sources */,
 				E91CB34727A2FFE056030A24247EF9DF /* Rotation.swift in Sources */,
+				070AD7D624E65FDA000B1B19 /* Pose.swift in Sources */,
 				B691C1CDB3BF650643DA9FDBA5261304 /* Shaders.metal in Sources */,
 				635E5185EC8D500DB3F9B5AA5277CB83 /* Texture.swift in Sources */,
 			);

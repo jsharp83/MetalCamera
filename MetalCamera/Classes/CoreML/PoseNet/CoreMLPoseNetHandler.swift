@@ -10,37 +10,6 @@ import AVFoundation
 import CoreML
 import Vision
 
-public struct PoseNetOutput {
-    enum Feature: String {
-        case heatmap = "heatmap"
-        case offsets = "offsets"
-        case backwardDisplacementMap = "displacementBwd"
-        case forwardDisplacementMap = "displacementFwd"
-    }
-
-    private(set) var heatmap: MLMultiArray!
-    private(set) var offsets: MLMultiArray!
-    private(set) var backwardDisplacementMap: MLMultiArray!
-    private(set) var forwardDisplacementMap: MLMultiArray!
-
-    init(_ predictionResult: [VNCoreMLFeatureValueObservation]) {
-        for result in predictionResult {
-            if let feature = Feature(rawValue: result.featureName) {
-                switch feature {
-                case .heatmap:
-                    self.heatmap = result.featureValue.multiArrayValue
-                case .offsets:
-                    self.offsets = result.featureValue.multiArrayValue
-                case .backwardDisplacementMap:
-                    self.backwardDisplacementMap = result.featureValue.multiArrayValue
-                case .forwardDisplacementMap:
-                    self.forwardDisplacementMap = result.featureValue.multiArrayValue
-                }
-            }
-        }
-    }
-}
-
 public class CoreMLPoseNetHandler: CMSampleChain {
     public var targets = TargetContainer<OperationChain>()
     let visionModel: VNCoreMLModel
@@ -144,6 +113,32 @@ public class CoreMLPoseNetHandler: CMSampleChain {
         commandEncoder?.endEncoding()
         commandBuffer?.commit()
 
+        let startTime2 = CFAbsoluteTimeGetCurrent()
+        let pose = Pose()
+
+        for name in Joint.Name.allCases {
+            let joint = pose.joints[name]!
+
+            var bestCell = PoseNetOutput.Cell(0, 0)
+            var bestConfidence = 0.0
+            for yIndex in 0..<posenet.height {
+                for xIndex in 0..<posenet.width {
+                    let currentCell = PoseNetOutput.Cell(yIndex, xIndex)
+                    let currentConfidence = posenet.confidence(for: joint.name, at: currentCell)
+
+                    // Keep track of the cell with the greatest confidence.
+                    if currentConfidence > bestConfidence {
+                        bestConfidence = currentConfidence
+                        bestCell = currentCell
+                    }
+                }
+            }
+//            print("\(bestCell), \(bestConfidence)")
+        }
+
+        let totalTime = CFAbsoluteTimeGetCurrent() - startTime2
+        debugPrint("Current totalTime: \(1000.0 * totalTime)ms")
+
         return outputTexture
     }
 
@@ -160,7 +155,7 @@ public class CoreMLPoseNetHandler: CMSampleChain {
             let totalTime = CFAbsoluteTimeGetCurrent() - startTime
 
             if runBenchmark {
-                debugPrint("Current inferenceTime: \(1000.0 * inferenceTime)ms, totalTime: \(1000.0 * totalTime)ms")
+//                debugPrint("Current inferenceTime: \(1000.0 * inferenceTime)ms, totalTime: \(1000.0 * totalTime)ms")
             }
 
             self.isProcessing = false
