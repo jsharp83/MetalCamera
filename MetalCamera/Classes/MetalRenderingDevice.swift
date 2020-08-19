@@ -58,4 +58,14 @@ public class MetalRenderingDevice {
         metrix.translation(x: -1, y: 1, z: 0)
         return self.device.makeBuffer(bytes: metrix.m, length: MemoryLayout<Float>.size * 16, options: [])
     }
+
+    func makeComputePipelineState(_ funcName: String) throws -> MTLComputePipelineState? {
+        let framework = Bundle(for: MetalCamera.self)
+        let resource = framework.path(forResource: "default", ofType: "metallib")!
+        let library = try self.device.makeLibrary(filepath: resource)
+        guard let mtlFunc = library.makeFunction(name: funcName) else { return nil }
+        let pipelineState = try self.device.makeComputePipelineState(function: mtlFunc)
+
+        return pipelineState
+    }
 }
