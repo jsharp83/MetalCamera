@@ -13,7 +13,7 @@ import CoreML
 import Vision
 
 class PoseNetSampleViewController: BaseCameraViewController {
-    let modelURL = URL(string: "https://ml-assets.apple.com/coreml/models/Image/PoseEstimation/PoseNet/PoseNetMobileNet075S8FP16.mlmodel")!
+    let modelURL = URL(string: "https://github.com/jsharp83/MetalCamera/raw/posenet/models/PoseNetMobileNet075S16FP16_float32.mlmodel")!
 
     override func viewDidLoad() {
         super.viewDidLoad()

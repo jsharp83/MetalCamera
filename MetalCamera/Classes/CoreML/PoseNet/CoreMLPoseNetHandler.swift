@@ -52,12 +52,12 @@ public class CoreMLPoseNetHandler: CMSampleChain {
 
             computePipelineState = try sharedMetalRenderingDevice.makeComputePipelineState("add_arrays")
 
-            let mA: [Double] = [0,1,2,3,4]
-            let mB: [Double] = [10,11,12,13,14]
+            let mA: [Float32] = [0,1,2,3,4]
+            let mB: [Float32] = [10,11,12,13,14]
 
-            mBufferA = sharedMetalRenderingDevice.device.makeBuffer(bytes: mA.map { Float($0) } , length: 5 * MemoryLayout<Float>.size, options: .storageModeShared)
-            mBufferB = sharedMetalRenderingDevice.device.makeBuffer(bytes: mB.map { Float($0) }, length: 5 * MemoryLayout<Float>.size, options: .storageModeShared)
-            mBufferResult = sharedMetalRenderingDevice.device.makeBuffer(length: 5 * MemoryLayout<Float>.size, options: .storageModeShared)
+            mBufferA = sharedMetalRenderingDevice.device.makeBuffer(bytes: mA , length: 5 * MemoryLayout<Float32>.size, options: .storageModeShared)
+            mBufferB = sharedMetalRenderingDevice.device.makeBuffer(bytes: mB, length: 5 * MemoryLayout<Float32>.size, options: .storageModeShared)
+            mBufferResult = sharedMetalRenderingDevice.device.makeBuffer(length: 5 * MemoryLayout<Float32>.size, options: .storageModeShared)
         } catch {
             debugPrint(error)
         }
@@ -144,7 +144,7 @@ public class CoreMLPoseNetHandler: CMSampleChain {
             let joint = pose.joints[name]!
 
             var bestCell = PoseNetOutput.Cell(0, 0)
-            var bestConfidence = 0.0
+            var bestConfidence: Float = 0.0
             for yIndex in 0..<posenet.height {
                 for xIndex in 0..<posenet.width {
                     let currentCell = PoseNetOutput.Cell(yIndex, xIndex)
@@ -200,45 +200,47 @@ public class CoreMLPoseNetHandler: CMSampleChain {
         commandEncoder.setBuffer(mBufferResult, offset: 0, index: 2)
 
         let gridSize = MTLSizeMake(5, 1, 1)
-        let threadgroupSize = MTLSizeMake(5, 1, 1)
+        let w = computePipelineState.threadExecutionWidth
+        let h = computePipelineState.maxTotalThreadsPerThreadgroup / w
+        let threadgroupSize = MTLSizeMake(w, h, 1)
         commandEncoder.dispatchThreads(gridSize, threadsPerThreadgroup: threadgroupSize)
 
         commandEncoder.endEncoding()
         commandBuffer?.commit()
 
         let rawPointer = mBufferResult.contents()
-        let typePointer = rawPointer.bindMemory(to: Float.self, capacity: 5)
+        let typePointer = rawPointer.bindMemory(to: Float32.self, capacity: 5)
         let bufferPointer = UnsafeBufferPointer(start: typePointer, count: 5)
         for item in bufferPointer {
             print(item)
         }
 
 
-//        let startTime2 = CFAbsoluteTimeGetCurrent()
-//        let pose = Pose()
-//
-//        for name in Joint.Name.allCases {
-//            let joint = pose.joints[name]!
-//
-//            var bestCell = PoseNetOutput.Cell(0, 0)
-//            var bestConfidence = 0.0
-//            for yIndex in 0..<output.height {
-//                for xIndex in 0..<output.width {
-//                    let currentCell = PoseNetOutput.Cell(yIndex, xIndex)
-//                    let currentConfidence = output.confidence(for: joint.name, at: currentCell)
-//
-//                    // Keep track of the cell with the greatest confidence.
-//                    if currentConfidence > bestConfidence {
-//                        bestConfidence = currentConfidence
-//                        bestCell = currentCell
-//                    }
-//                }
-//            }
-//            //            print("\(bestCell), \(bestConfidence)")
-//        }
-//
-//        let totalTime = CFAbsoluteTimeGetCurrent() - startTime2
-//        debugPrint("Current totalTime: \(1000.0 * totalTime)ms")
+        let startTime2 = CFAbsoluteTimeGetCurrent()
+        let pose = Pose()
+
+        for name in Joint.Name.allCases {
+            let joint = pose.joints[name]!
+
+            var bestCell = PoseNetOutput.Cell(0, 0)
+            var bestConfidence: Float = 0.0
+            for yIndex in 0..<output.height {
+                for xIndex in 0..<output.width {
+                    let currentCell = PoseNetOutput.Cell(yIndex, xIndex)
+                    let currentConfidence = output.confidence(for: joint.name, at: currentCell)
+
+                    // Keep track of the cell with the greatest confidence.
+                    if currentConfidence > bestConfidence {
+                        bestConfidence = currentConfidence
+                        bestCell = currentCell
+                    }
+                }
+            }
+            print("\(bestCell), \(bestConfidence)")
+        }
+
+        let totalTime = CFAbsoluteTimeGetCurrent() - startTime2
+        debugPrint("Current totalTime: \(1000.0 * totalTime)ms")
     }
 
     func createRequest() -> VNCoreMLRequest {

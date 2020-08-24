@@ -78,8 +78,8 @@ public struct PoseNetOutput {
         let xOffsetIndex = [jointName.rawValue + Joint.numberOfJoints, cell.yIndex, cell.xIndex]
 
         // Obtain y and x component of the offset from the offsets array.
-        let offsetY: Double = offsets[yOffsetIndex].doubleValue
-        let offsetX: Double = offsets[xOffsetIndex].doubleValue
+        let offsetY: Float = offsets[yOffsetIndex].floatValue
+        let offsetX: Float = offsets[xOffsetIndex].floatValue
 
         return CGVector(dx: CGFloat(offsetX), dy: CGFloat(offsetY))
     }
@@ -97,9 +97,9 @@ public struct PoseNetOutput {
         return jointPosition
     }
 
-    func confidence(for jointName: Joint.Name, at cell: Cell) -> Double {
+    func confidence(for jointName: Joint.Name, at cell: Cell) -> Float {
         let multiArrayIndex = [jointName.rawValue, cell.yIndex, cell.xIndex]
-        return heatmap[multiArrayIndex].doubleValue
+        return heatmap[multiArrayIndex].floatValue
     }
 }
 
