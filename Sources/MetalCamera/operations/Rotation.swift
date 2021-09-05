@@ -5,7 +5,7 @@
 //  Created by Eric on 2020/06/06.
 //
 
-import Foundation
+import UIKit
 
 public enum Rotation {
     case degree90

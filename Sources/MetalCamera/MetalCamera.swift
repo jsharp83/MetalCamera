@@ -7,6 +7,7 @@ enum MetalCameraError: Error {
 }
 
 public class MetalCamera: NSObject, OperationChain, AudioOperationChain {
+    public static let libraryName = "Metal Camera"
     public var runBenchmark = false
     public var logFPS = false
 

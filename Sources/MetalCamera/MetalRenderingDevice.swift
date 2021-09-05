@@ -5,7 +5,7 @@
 //  Created by Eric on 2020/06/04.
 //
 
-import Foundation
+import UIKit
 import Metal
 
 public let sharedMetalRenderingDevice = MetalRenderingDevice()
