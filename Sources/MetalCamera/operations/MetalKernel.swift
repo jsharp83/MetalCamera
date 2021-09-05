@@ -5,10 +5,10 @@
 //  Created by Eric on 2020/07/21.
 //
 
-import Foundation
+import UIKit
 import MetalPerformanceShaders
 
-public class Kernel: OperationChain {
+public class MetalKernel: OperationChain {
     public let targets = TargetContainer<OperationChain>()
     private let textureInputSemaphore = DispatchSemaphore(value:1)
     private let kernel: MPSUnaryImageKernel

@@ -18,7 +18,7 @@ class MPSSampleViewController: BaseCameraViewController {
         camera.removeAllTargets()
 
         let sobel = MPSImageSobel(device: sharedMetalRenderingDevice.device)
-        let kernel = Kernel(sobel)
+        let kernel = MetalKernel(sobel)
         camera-->kernel-->preview
     }
 }

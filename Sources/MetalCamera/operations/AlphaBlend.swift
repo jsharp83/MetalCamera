@@ -1,13 +1,16 @@
 //
-//  Mask.swift
+//  AlphaBlend.swift
 //  MetalCamera
 //
-//  Created by Eric on 2020/06/29.
+//  Created by Eric on 2020/06/16.
 //
 
-import Foundation
+import UIKit
 
-public class Mask: TwoTextureOperationChain {
+public let standardImageVertices: [Float] = [-1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0]
+public let standardTextureCoordinate: [Float] = [0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0]
+
+public class AlphaBlend: TwoTextureOperationChain {
     public var targets = TargetContainer<OperationChain>()
 
     private var pipelineState: MTLRenderPipelineState!
@@ -15,6 +18,8 @@ public class Mask: TwoTextureOperationChain {
 
     private var textureBuffer1: MTLBuffer?
     private var textureBuffer2: MTLBuffer?
+
+    public var alphaValue: Float = 0.5
 
     public init() {
         setup()
@@ -26,7 +31,7 @@ public class Mask: TwoTextureOperationChain {
 
     private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm) {
         do {
-            let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("two_vertex_render_target", "maskFragment", colorPixelFormat)
+            let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("two_vertex_render_target", "alphaBlendFragment", colorPixelFormat)
             pipelineState = try sharedMetalRenderingDevice.device.makeRenderPipelineState(descriptor: rpd)
         } catch {
             debugPrint(error)
@@ -55,7 +60,7 @@ public class Mask: TwoTextureOperationChain {
         return textureBuffer
     }
 
-    public func newTextureAvailable(_ source1: Texture, _ source2: Texture, completion: @escaping ((Texture) -> Void)) {
+    public func newTextureAvailable(_ source1: Texture, _ source2: Texture, completion: @escaping ((_ texture: Texture) -> Void)) {
         let _ = textureInputSemaphore.wait(timeout:DispatchTime.distantFuture)
         defer {
             textureInputSemaphore.signal()
@@ -96,6 +101,10 @@ public class Mask: TwoTextureOperationChain {
 
         commandEncoder?.setFragmentTexture(source1.texture, index: 0)
         commandEncoder?.setFragmentTexture(source2.texture, index: 1)
+        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: [alphaValue],
+                                                                         length: 1 * MemoryLayout<Float>.size,
+                                                                         options: [])!
+        commandEncoder?.setFragmentBuffer(uniformBuffer, offset: 0, index: 1)
 
         commandEncoder?.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
         commandEncoder?.endEncoding()
