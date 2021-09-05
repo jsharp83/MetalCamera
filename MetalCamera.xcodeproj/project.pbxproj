@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00E926E4744B008C6607 /* VideoPreview.swift */; };
+		077F00F426E66FC2008C6607 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 077F00F326E66FC2008C6607 /* Shaders.metal */; };
 		OBJ_101 /* MetalCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MetalCamera::MetalCamera::Product" /* MetalCamera.framework */; };
 		OBJ_55 /* CoreMLClassifierHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* CoreMLClassifierHandler.swift */; };
 		OBJ_56 /* CoreMLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreMLLoader.swift */; };
@@ -42,7 +44,7 @@
 		OBJ_72 /* Gray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Gray.swift */; };
 		OBJ_73 /* ImageCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ImageCompositor.swift */; };
 		OBJ_74 /* Lookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Lookup.swift */; };
-		OBJ_75 /* MPSKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* MPSKernel.swift */; };
+		OBJ_75 /* Kernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Kernel.swift */; };
 		OBJ_76 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Mask.swift */; };
 		OBJ_77 /* MetalKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* MetalKernel.swift */; };
 		OBJ_78 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* Rotation.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		077F00E926E4744B008C6607 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
+		077F00F326E66FC2008C6607 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		"MetalCamera::MetalCamera::Product" /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MetalCamera::MetalCameraTests::Product" /* MetalCameraTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetalCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* CoreMLClassifierHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierHandler.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		OBJ_30 /* Gray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gray.swift; sourceTree = "<group>"; };
 		OBJ_31 /* ImageCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompositor.swift; sourceTree = "<group>"; };
 		OBJ_32 /* Lookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup.swift; sourceTree = "<group>"; };
-		OBJ_33 /* MPSKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSKernel.swift; sourceTree = "<group>"; };
+		OBJ_33 /* Kernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kernel.swift; sourceTree = "<group>"; };
 		OBJ_34 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
 		OBJ_35 /* MetalKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalKernel.swift; sourceTree = "<group>"; };
 		OBJ_36 /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
@@ -126,6 +130,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		077F00E826E469CC008C6607 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				077F00E926E4744B008C6607 /* VideoPreview.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		077F00F226E66FC2008C6607 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				077F00F326E66FC2008C6607 /* Shaders.metal */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		OBJ_12 /* PoseNet */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +174,7 @@
 				OBJ_30 /* Gray.swift */,
 				OBJ_31 /* ImageCompositor.swift */,
 				OBJ_32 /* Lookup.swift */,
-				OBJ_33 /* MPSKernel.swift */,
+				OBJ_33 /* Kernel.swift */,
 				OBJ_34 /* Mask.swift */,
 				OBJ_35 /* MetalKernel.swift */,
 				OBJ_36 /* Rotation.swift */,
@@ -198,7 +218,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -209,7 +229,6 @@
 				OBJ_48 /* LICENSE */,
 				OBJ_49 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -223,7 +242,12 @@
 		OBJ_8 /* MetalCamera */ = {
 			isa = PBXGroup;
 			children = (
+				077F00E826E469CC008C6607 /* SwiftUI */,
 				OBJ_9 /* CoreML */,
+				OBJ_24 /* audio */,
+				OBJ_28 /* operations */,
+				OBJ_37 /* utils */,
+				077F00F226E66FC2008C6607 /* shader */,
 				OBJ_17 /* MetalCamera.swift */,
 				OBJ_18 /* MetalRenderingDevice.swift */,
 				OBJ_19 /* MetalVideoLoader.swift */,
@@ -231,9 +255,6 @@
 				OBJ_21 /* MetalVideoWriter.swift */,
 				OBJ_22 /* OperationChain.swift */,
 				OBJ_23 /* Texture.swift */,
-				OBJ_24 /* audio */,
-				OBJ_28 /* operations */,
-				OBJ_37 /* utils */,
 			);
 			name = MetalCamera;
 			path = Sources/MetalCamera;
@@ -315,7 +336,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_44 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -333,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				077F00F426E66FC2008C6607 /* Shaders.metal in Sources */,
 				OBJ_55 /* CoreMLClassifierHandler.swift in Sources */,
 				OBJ_56 /* CoreMLLoader.swift in Sources */,
 				OBJ_57 /* CoreMLPoseNetHandler.swift in Sources */,
@@ -342,6 +364,7 @@
 				OBJ_61 /* MetalCamera.swift in Sources */,
 				OBJ_62 /* MetalRenderingDevice.swift in Sources */,
 				OBJ_63 /* MetalVideoLoader.swift in Sources */,
+				077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */,
 				OBJ_64 /* MetalVideoView.swift in Sources */,
 				OBJ_65 /* MetalVideoWriter.swift in Sources */,
 				OBJ_66 /* OperationChain.swift in Sources */,
@@ -353,7 +376,7 @@
 				OBJ_72 /* Gray.swift in Sources */,
 				OBJ_73 /* ImageCompositor.swift in Sources */,
 				OBJ_74 /* Lookup.swift in Sources */,
-				OBJ_75 /* MPSKernel.swift in Sources */,
+				OBJ_75 /* Kernel.swift in Sources */,
 				OBJ_76 /* Mask.swift in Sources */,
 				OBJ_77 /* MetalKernel.swift in Sources */,
 				OBJ_78 /* Rotation.swift in Sources */,
