@@ -12,20 +12,15 @@ struct ExampleView: View {
     var body: some View {
         NavigationView {
             List(Examples.allCases) { item in
-                NavigationLink(destination: ExampleChildView(example: item)) {
-                    Text("\(item.name)")
+                NavigationLink(destination: item.view) {
+                    HStack {
+                        Text("\(item.name)")
+                        Spacer()
+                    }
                 }
             }
             .navigationTitle(MetalCamera.libraryName)
         }
-    }
-}
-
-struct ExampleChildView: View {
-    let example: Examples
-    
-    var body: some View {
-        Text("\(example.name)")
     }
 }
 

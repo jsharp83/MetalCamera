@@ -13,8 +13,16 @@
 		077F009326E450C3008C6607 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077F009226E450C3008C6607 /* Preview Assets.xcassets */; };
 		077F009E26E450C3008C6607 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F009D26E450C3008C6607 /* ExampleTests.swift */; };
 		077F00A926E450C3008C6607 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00A826E450C3008C6607 /* ExampleUITests.swift */; };
-		077F00E026E45297008C6607 /* MetalCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077F00D826E45271008C6607 /* MetalCamera.framework */; };
 		077F00E726E461C2008C6607 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00E626E461C2008C6607 /* Examples.swift */; };
+		077F00F726E671BE008C6607 /* CameraSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00F626E671BE008C6607 /* CameraSampleView.swift */; };
+		077F00F826E6798A008C6607 /* MetalCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077F00D826E45271008C6607 /* MetalCamera.framework */; };
+		077F00F926E6798A008C6607 /* MetalCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 077F00D826E45271008C6607 /* MetalCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		077F00FC26E725C9008C6607 /* SegmentationSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00FB26E725C9008C6607 /* SegmentationSampleView.swift */; };
+		077F00FE26E7349E008C6607 /* MPSSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00FD26E7349E008C6607 /* MPSSampleView.swift */; };
+		077F010126E78E4E008C6607 /* lookup_amatorka.png in Resources */ = {isa = PBXBuildFile; fileRef = 077F00FF26E78E4E008C6607 /* lookup_amatorka.png */; };
+		077F010226E78E4E008C6607 /* lookup_miss_etikate.png in Resources */ = {isa = PBXBuildFile; fileRef = 077F010026E78E4E008C6607 /* lookup_miss_etikate.png */; };
+		077F010426E78ED1008C6607 /* LookupFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F010326E78ED1008C6607 /* LookupFilterView.swift */; };
+		077F010626E78F15008C6607 /* LookupFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F010526E78F15008C6607 /* LookupFilterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		077F00FA26E6798A008C6607 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				077F00F926E6798A008C6607 /* MetalCamera.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		077F008826E450C1008C6607 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077F008B26E450C1008C6607 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
@@ -70,6 +92,13 @@
 		077F00AA26E450C3008C6607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		077F00D026E45271008C6607 /* MetalCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MetalCamera.xcodeproj; path = ../MetalCamera.xcodeproj; sourceTree = "<group>"; };
 		077F00E626E461C2008C6607 /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		077F00F626E671BE008C6607 /* CameraSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSampleView.swift; sourceTree = "<group>"; };
+		077F00FB26E725C9008C6607 /* SegmentationSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationSampleView.swift; sourceTree = "<group>"; };
+		077F00FD26E7349E008C6607 /* MPSSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSSampleView.swift; sourceTree = "<group>"; };
+		077F00FF26E78E4E008C6607 /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
+		077F010026E78E4E008C6607 /* lookup_miss_etikate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_miss_etikate.png; sourceTree = "<group>"; };
+		077F010326E78ED1008C6607 /* LookupFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupFilterView.swift; sourceTree = "<group>"; };
+		077F010526E78F15008C6607 /* LookupFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupFilterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				077F00E026E45297008C6607 /* MetalCamera.framework in Frameworks */,
+				077F00F826E6798A008C6607 /* MetalCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +152,7 @@
 		077F008A26E450C1008C6607 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				077F00F526E67199008C6607 /* Views */,
 				077F008B26E450C1008C6607 /* ExampleApp.swift */,
 				077F008D26E450C1008C6607 /* ExampleView.swift */,
 				077F00E626E461C2008C6607 /* Examples.swift */,
@@ -176,11 +206,25 @@
 		077F00E226E4613C008C6607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				077F00FF26E78E4E008C6607 /* lookup_amatorka.png */,
+				077F010026E78E4E008C6607 /* lookup_miss_etikate.png */,
 				077F008F26E450C3008C6607 /* Assets.xcassets */,
 				077F009426E450C3008C6607 /* Info.plist */,
 				077F009126E450C3008C6607 /* Preview Content */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		077F00F526E67199008C6607 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				077F00F626E671BE008C6607 /* CameraSampleView.swift */,
+				077F00FB26E725C9008C6607 /* SegmentationSampleView.swift */,
+				077F00FD26E7349E008C6607 /* MPSSampleView.swift */,
+				077F010326E78ED1008C6607 /* LookupFilterView.swift */,
+				077F010526E78F15008C6607 /* LookupFilterViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +237,7 @@
 				077F008426E450C1008C6607 /* Sources */,
 				077F008526E450C1008C6607 /* Frameworks */,
 				077F008626E450C1008C6607 /* Resources */,
+				077F00FA26E6798A008C6607 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077F010126E78E4E008C6607 /* lookup_amatorka.png in Resources */,
+				077F010226E78E4E008C6607 /* lookup_miss_etikate.png in Resources */,
 				077F009326E450C3008C6607 /* Preview Assets.xcassets in Resources */,
 				077F009026E450C3008C6607 /* Assets.xcassets in Resources */,
 			);
@@ -337,8 +384,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				077F008E26E450C1008C6607 /* ExampleView.swift in Sources */,
+				077F00FC26E725C9008C6607 /* SegmentationSampleView.swift in Sources */,
+				077F010626E78F15008C6607 /* LookupFilterViewModel.swift in Sources */,
+				077F010426E78ED1008C6607 /* LookupFilterView.swift in Sources */,
 				077F00E726E461C2008C6607 /* Examples.swift in Sources */,
 				077F008C26E450C1008C6607 /* ExampleApp.swift in Sources */,
+				077F00F726E671BE008C6607 /* CameraSampleView.swift in Sources */,
+				077F00FE26E7349E008C6607 /* MPSSampleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

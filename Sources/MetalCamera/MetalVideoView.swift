@@ -15,6 +15,11 @@ public class MetalVideoView: MTKView {
     private var pipelineState: MTLRenderPipelineState!
     private var render_target_vertex: MTLBuffer!
     private var render_target_uniform: MTLBuffer!
+    
+    public init() {
+        super.init(frame: .zero, device: sharedMetalRenderingDevice.device)
+        setup()
+    }
 
     public required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -36,7 +41,7 @@ public class MetalVideoView: MTKView {
     }
 
     func setupTargetUniforms() {
-        let size = drawableSize
+        let size = UIScreen.main.bounds.size
         render_target_vertex = sharedMetalRenderingDevice.makeRenderVertexBuffer(size: size)
         render_target_uniform = sharedMetalRenderingDevice.makeRenderUniformBuffer(size)
     }
