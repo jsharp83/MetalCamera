@@ -33,7 +33,7 @@ Thanks.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and open Example.xcodeproj from the Example directory first.
 
 ### Camera
 * SwiftUI case
