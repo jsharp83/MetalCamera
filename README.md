@@ -15,6 +15,7 @@ There are many ways to use the GPU, including CIFilter, but it's not open or dif
 The main goal of this repository is to provide an interface and test performance to develop and apply it to actual services more easily when you have an idea about image processing and machine learning in the iOS environment.
 
 At this stage, I'm developing to provide the following functions simply.
+* SwiftUI support
 * Camera input/output Handling
 * Save image frame to video
 * Basic image processing and filter
@@ -35,8 +36,27 @@ Thanks.
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ### Camera
+* SwiftUI case
 ```swift
-    
+import SwiftUI
+import MetalCamera
+
+struct CameraSampleView: View {
+    let camera = try! MetalCamera(videoOrientation: .portrait, isVideoMirrored: true)
+    var body: some View {
+        VideoPreview(operation: camera)
+            .onAppear {
+                camera.startCapture()
+            }
+            .onDisappear {
+                camera.stopCapture()
+            }
+    }
+}
+```
+
+* UIKit case
+```swift    
 import MetalCamera    
 @IBOutlet weak var preview: MetalVideoView!
 var camera: MetalCamera!
@@ -167,8 +187,8 @@ do {
 
 ## Requirements
 * Swift 5
-* Xcode 11.5 or higher on Mac
-* iOS: 13.0 or higher
+* Xcode 12.5.1 or higher on Mac
+* iOS: 14.0 or higher
 
 ## Installation
 
