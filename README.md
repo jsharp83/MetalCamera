@@ -3,9 +3,6 @@
 <!--
 [![CI Status](https://img.shields.io/travis/jsharp83/MetalCamera.svg?style=flat)](https://travis-ci.org/jsharp83/MetalCamera)
 -->
-[![Version](https://img.shields.io/cocoapods/v/MetalCamera.svg?style=flat)](https://cocoapods.org/pods/MetalCamera)
-[![License](https://img.shields.io/cocoapods/l/MetalCamera.svg?style=flat)](https://cocoapods.org/pods/MetalCamera)
-[![Platform](https://img.shields.io/cocoapods/p/MetalCamera.svg?style=flat)](https://cocoapods.org/pods/MetalCamera)
 
 ## Motivation
 MetalCamera is an open source project for performing GPU-accelerated image and video processing on Mac and iOS. 
