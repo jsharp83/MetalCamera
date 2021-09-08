@@ -105,7 +105,6 @@
 		OBJ_39 /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
 		OBJ_40 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		OBJ_43 /* MetalCameraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalCameraTests.swift; sourceTree = "<group>"; };
-		OBJ_47 /* PREV */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PREV; sourceTree = SOURCE_ROOT; };
 		OBJ_48 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_49 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -225,7 +224,6 @@
 				OBJ_7 /* Sources */,
 				OBJ_41 /* Tests */,
 				OBJ_44 /* Products */,
-				OBJ_47 /* PREV */,
 				OBJ_48 /* LICENSE */,
 				OBJ_49 /* README.md */,
 			);

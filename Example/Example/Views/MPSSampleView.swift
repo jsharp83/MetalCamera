@@ -34,9 +34,3 @@ struct MPSSampleView: View {
         }
     }
 }
-
-struct MPSSampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        MPSSampleView()
-    }
-}

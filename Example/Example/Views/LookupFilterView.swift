@@ -30,9 +30,3 @@ struct LookupFilterView: View {
         }
     }
 }
-
-struct LookupFilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        LookupFilterView()
-    }
-}

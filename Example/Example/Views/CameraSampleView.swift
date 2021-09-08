@@ -20,9 +20,3 @@ struct CameraSampleView: View {
             }
     }
 }
-
-struct CameraSampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraSampleView()
-    }
-}

@@ -1,6 +1,0 @@
-framework module Pods_MetalCamera_Tests {
-  umbrella header "Pods-MetalCamera_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

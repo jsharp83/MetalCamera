@@ -34,12 +34,6 @@ struct SegmentationSampleView: View {
     }
 }
 
-struct SegmentationSampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        SegmentationSampleView()
-    }
-}
-
 extension SegmentationSampleView {
     func loadCoreML() {
         do {
