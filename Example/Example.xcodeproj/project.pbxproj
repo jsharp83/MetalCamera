@@ -557,12 +557,12 @@
 				DEVELOPMENT_TEAM = RD66BYHLFJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Example/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.Example1;
+				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -579,12 +579,12 @@
 				DEVELOPMENT_TEAM = RD66BYHLFJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Example/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.Example1;
+				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
