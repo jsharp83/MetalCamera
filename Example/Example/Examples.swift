@@ -15,6 +15,7 @@ enum Examples: Int, CaseIterable, Identifiable {
     case segmentation
     case lookup
     case MPS
+    case stability
     
     var id: String {
         return "\(self.rawValue)"
@@ -32,6 +33,8 @@ enum Examples: Int, CaseIterable, Identifiable {
             return "Lookup Table"
         case .MPS:
             return "Metal Performance Shader"
+        case .stability:
+            return "Camera Stability"
         }
     }
 }
@@ -47,6 +50,8 @@ extension Examples {
             return AnyView(MPSSampleView())
         case .lookup:
             return AnyView(LookupFilterView())
+        case .stability:
+            return AnyView(StabilityCheckView())
         default:
             return AnyView(Text(self.name))
         }

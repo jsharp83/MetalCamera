@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00E926E4744B008C6607 /* VideoPreview.swift */; };
 		077F00F426E66FC2008C6607 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 077F00F326E66FC2008C6607 /* Shaders.metal */; };
+		07D805FD277ED83F00BEA450 /* TranslationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D805FC277ED83F00BEA450 /* TranslationHandler.swift */; };
 		OBJ_101 /* MetalCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MetalCamera::MetalCamera::Product" /* MetalCamera.framework */; };
 		OBJ_55 /* CoreMLClassifierHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* CoreMLClassifierHandler.swift */; };
 		OBJ_56 /* CoreMLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CoreMLLoader.swift */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		077F00E926E4744B008C6607 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		077F00F326E66FC2008C6607 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		07D805FC277ED83F00BEA450 /* TranslationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHandler.swift; sourceTree = "<group>"; };
 		"MetalCamera::MetalCamera::Product" /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MetalCamera::MetalCameraTests::Product" /* MetalCameraTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetalCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* CoreMLClassifierHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLClassifierHandler.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 				077F00F326E66FC2008C6607 /* Shaders.metal */,
 			);
 			path = shader;
+			sourceTree = "<group>";
+		};
+		07D805FB277ED38000BEA450 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				07D805FC277ED83F00BEA450 /* TranslationHandler.swift */,
+			);
+			path = Vision;
 			sourceTree = "<group>";
 		};
 		OBJ_12 /* PoseNet */ = {
@@ -242,6 +252,7 @@
 			children = (
 				077F00E826E469CC008C6607 /* SwiftUI */,
 				OBJ_9 /* CoreML */,
+				07D805FB277ED38000BEA450 /* Vision */,
 				OBJ_24 /* audio */,
 				OBJ_28 /* operations */,
 				OBJ_37 /* utils */,
@@ -380,6 +391,7 @@
 				OBJ_78 /* Rotation.swift in Sources */,
 				OBJ_79 /* Colors.swift in Sources */,
 				OBJ_80 /* Maths.swift in Sources */,
+				07D805FD277ED83F00BEA450 /* TranslationHandler.swift in Sources */,
 				OBJ_81 /* extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
