@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00E926E4744B008C6607 /* VideoPreview.swift */; };
 		077F00F426E66FC2008C6607 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 077F00F326E66FC2008C6607 /* Shaders.metal */; };
+		079ED717278EA54100E2B281 /* PersonSegmentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */; };
 		07D805FD277ED83F00BEA450 /* TranslationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D805FC277ED83F00BEA450 /* TranslationHandler.swift */; };
 		OBJ_101 /* MetalCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MetalCamera::MetalCamera::Product" /* MetalCamera.framework */; };
 		OBJ_55 /* CoreMLClassifierHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* CoreMLClassifierHandler.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		077F00E926E4744B008C6607 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		077F00F326E66FC2008C6607 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSegmentationHandler.swift; sourceTree = "<group>"; };
 		07D805FC277ED83F00BEA450 /* TranslationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationHandler.swift; sourceTree = "<group>"; };
 		"MetalCamera::MetalCamera::Product" /* MetalCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MetalCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MetalCamera::MetalCameraTests::Product" /* MetalCameraTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetalCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				07D805FC277ED83F00BEA450 /* TranslationHandler.swift */,
+				079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				OBJ_62 /* MetalRenderingDevice.swift in Sources */,
 				OBJ_63 /* MetalVideoLoader.swift in Sources */,
 				077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */,
+				079ED717278EA54100E2B281 /* PersonSegmentationHandler.swift in Sources */,
 				OBJ_64 /* MetalVideoView.swift in Sources */,
 				OBJ_65 /* MetalVideoWriter.swift in Sources */,
 				OBJ_66 /* OperationChain.swift in Sources */,
@@ -492,7 +496,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetalCamera.xcodeproj/MetalCamera_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -522,7 +526,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MetalCamera.xcodeproj/MetalCamera_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
