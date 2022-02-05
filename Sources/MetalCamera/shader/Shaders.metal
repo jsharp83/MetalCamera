@@ -69,7 +69,7 @@ fragment half4 alphaBlendFragment(TwoInputVertex fragmentInput [[stage_in]],
     constexpr sampler quadSampler;
     half4 textureColor = inputTexture.sample(quadSampler, fragmentInput.textureCoordinate);
     constexpr sampler quadSampler2;
-    half4 textureColor2 = inputTexture2.sample(quadSampler, fragmentInput.textureCoordinate2);
+    half4 textureColor2 = inputTexture2.sample(quadSampler2, fragmentInput.textureCoordinate2);
 
     return half4(mix(textureColor.rgb, textureColor2.rgb, textureColor2.a * half(uniform.mixturePercent)), textureColor.a);
 }
@@ -81,7 +81,7 @@ fragment half4 maskFragment(TwoInputVertex fragmentInput [[stage_in]],
     constexpr sampler quadSampler;
     half4 textureColor = inputTexture.sample(quadSampler, fragmentInput.textureCoordinate);
     constexpr sampler quadSampler2;
-    half4 textureColor2 = inputTexture2.sample(quadSampler, fragmentInput.textureCoordinate2);
+    half4 textureColor2 = inputTexture2.sample(quadSampler2, fragmentInput.textureCoordinate2);
 
     if(textureColor2.r + textureColor2.g + textureColor2.b > 0) {
         return textureColor;
@@ -92,41 +92,40 @@ fragment half4 maskFragment(TwoInputVertex fragmentInput [[stage_in]],
 
 typedef struct
 {
-    int32_t classNum;
-} SegmentationValue;
-
-typedef struct
-{
     int32_t targetClass;
     int32_t width;
     int32_t height;
 } SegmentationUniform;
 
+typedef struct
+{
+    float width;
+    float height;
+    float widthRatio;
+    float heightRatio;
+} SegmentationResizeUniform;
+
+
 fragment float4 segmentation_render_target(Vertex vertex_data [[ stage_in ]],
-                                           constant SegmentationValue *segmentation [[ buffer(0) ]],
+                                           constant int32_t *segmentation [[ buffer(0) ]],
                                            constant SegmentationUniform& uniform [[ buffer(1) ]])
 
 {
     int index = int(vertex_data.position.x) + int(vertex_data.position.y) * uniform.width;
-    if(segmentation[index].classNum == uniform.targetClass) {
+    if(segmentation[index] == uniform.targetClass) {
         return float4(1.0, 0, 0, 1.0);
     }
 
     return float4(0,0,0,1.0);
 };
 
-typedef struct
-{
-    uint8_t value;
-} SegmentationValue2;
-
-fragment float4 segmentation_render_target2(Vertex vertex_data [[ stage_in ]],
-                                            constant SegmentationValue2 *segmentation [[ buffer(0) ]],
-                                            constant SegmentationUniform& uniform [[ buffer(1) ]])
+fragment float4 segmentation_resize_render_target(Vertex vertex_data [[ stage_in ]],
+                                                  constant uint8_t *segmentation [[ buffer(0) ]],
+                                                  constant SegmentationResizeUniform& uniform [[ buffer(1) ]])
 
 {
-    int index = int(vertex_data.position.x) + int(vertex_data.position.y) * uniform.width;
-    return float4(segmentation[index].value/255.0,0,0,1.0);
+    int index = int(vertex_data.position.x * uniform.widthRatio) + int(vertex_data.position.y * uniform.heightRatio) * uniform.width;
+    return float4(segmentation[index]/255.0,0,0,1.0);
 };
 
 typedef struct

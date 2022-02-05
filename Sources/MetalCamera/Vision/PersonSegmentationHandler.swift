@@ -6,10 +6,7 @@
 //
 
 import AVFoundation
-import CoreImage.CIFilterBuiltins
 import Vision
-
-var isFirstTime = true
 
 public class PersonSegmentationHandler: CMSampleChain {
     public var targets = TargetContainer<OperationChain>()
@@ -30,6 +27,8 @@ public class PersonSegmentationHandler: CMSampleChain {
     
     let resultOperation = AlphaBlend()
     
+    let processingQueue = DispatchQueue.global()
+    
     public init() {
         segmentationRequest = VNGeneratePersonSegmentationRequest()
         segmentationRequest.qualityLevel = .balanced
@@ -38,7 +37,7 @@ public class PersonSegmentationHandler: CMSampleChain {
     
     private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm, width: Int, height: Int) {
         do {
-            let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "segmentation_render_target2", colorPixelFormat)
+            let rpd = try sharedMetalRenderingDevice.generateRenderPipelineDescriptor("vertex_render_target", "segmentation_resize_render_target", colorPixelFormat)
             pipelineState = try sharedMetalRenderingDevice.device.makeRenderPipelineState(descriptor: rpd)
 
             render_target_vertex = sharedMetalRenderingDevice.makeRenderVertexBuffer(size: CGSize(width: width, height: height))
@@ -54,26 +53,11 @@ public class PersonSegmentationHandler: CMSampleChain {
         }
     }
     
-    public func newBufferAvailable(_ sampleBuffer: CMSampleBuffer) {
-        if isProcessing {
-            if runBenchmark {
-                debugPrint("Drop the frame....")
-            }
-
-            return
-        }
-
-        isProcessing = true
-        
-        defer {
-            isProcessing = false
-        }
-        
+    private func handleSampleBuffer(_ sampleBuffer: CMSampleBuffer) {
         currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
         startTime = CFAbsoluteTimeGetCurrent()
                         
         guard let cameraFrame = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-
         
         do {
             try requestHandler.perform([segmentationRequest], on: cameraFrame)
@@ -81,12 +65,14 @@ public class PersonSegmentationHandler: CMSampleChain {
                 return
             }
                         
-            guard let outputTexture = generateTexture(maskPixelBuffer) else {
+            let bufferWidth = CVPixelBufferGetWidth(cameraFrame)
+            let bufferHeight = CVPixelBufferGetHeight(cameraFrame)
+            
+            guard let outputTexture = generateTexture(maskPixelBuffer, bufferWidth, bufferHeight) else {
                 return
             }
             
-            operationFinished(outputTexture)
-            return
+            let inferenceTime = CFAbsoluteTimeGetCurrent() - startTime
                         
             guard let frameTexture = frameTexture else {
                 return
@@ -96,34 +82,34 @@ public class PersonSegmentationHandler: CMSampleChain {
                 self?.operationFinished(texture)
             }
             
-//            let texture: Texture?
-//            let bufferWidth = CVPixelBufferGetWidth(maskPixelBuffer)
-//            let bufferHeight = CVPixelBufferGetHeight(maskPixelBuffer)
-//            let currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-//
-//            var textureRef: CVMetalTexture? = nil
-//
-//            let _ = CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, videoTextureCache, maskPixelBuffer, nil, .r8Uint, bufferWidth, bufferHeight , 0, &textureRef)
-//            if let concreteTexture = textureRef,
-//                let cameraTexture = CVMetalTextureGetTexture(concreteTexture) {
-//                texture = Texture(texture: cameraTexture, timestamp: currentTime, textureKey: "Segmentation")
-//            } else {
-//                texture = nil
-//            }
-//
-//            if let texture = texture {
-//                self.operationFinished(texture)
-//            }
-
+            let totalTime = CFAbsoluteTimeGetCurrent() - startTime
+            if runBenchmark {
+                debugPrint("Current inferenceTime: \(1000.0 * inferenceTime)ms, totalTime: \(1000.0 * totalTime)ms")
+            }
+            
             isProcessing = false
         } catch {
             debugPrint("\(error.localizedDescription)")
         }
     }
     
+    public func newBufferAvailable(_ sampleBuffer: CMSampleBuffer) {
+        if isProcessing {
+            if runBenchmark {
+                debugPrint("Drop the frame....")
+            }
+
+            return
+        }
+
+        processingQueue.async { [weak self] in
+            self?.handleSampleBuffer(sampleBuffer)
+        }
+    }
+    
 
     
-    private func generateTexture(_ mask: CVPixelBuffer) -> Texture? {
+    private func generateTexture(_ mask: CVPixelBuffer, _ targetWidth: Int, _ targetHeight: Int) -> Texture? {
         
         CVPixelBufferLockBaseAddress(mask, CVPixelBufferLockFlags(rawValue: 0))
         
@@ -139,10 +125,10 @@ public class PersonSegmentationHandler: CMSampleChain {
         }
         
         if pipelineState == nil {
-            setupPiplineState(width: bufferWidth, height: bufferHeight)
+            setupPiplineState(width: targetWidth, height: targetHeight)
         }
         
-        let outputTexture = Texture(bufferWidth, bufferHeight, timestamp: currentTime, textureKey: "segmentation")
+        let outputTexture = Texture(targetWidth, targetHeight, timestamp: currentTime, textureKey: "segmentation")
 
         let renderPassDescriptor = MTLRenderPassDescriptor()
         let attachment = renderPassDescriptor.colorAttachments[0]
@@ -165,8 +151,8 @@ public class PersonSegmentationHandler: CMSampleChain {
                                                                               options: [])!
         commandEncoder?.setFragmentBuffer(segmentationBuffer, offset: 0, index: 0)
         
-        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: [Int32(255), Int32(bufferWidth), Int32(bufferHeight)] as [Int32],
-                                                                         length: 3 * MemoryLayout<Int32>.size,
+        let uniformBuffer = sharedMetalRenderingDevice.device.makeBuffer(bytes: [Float32(bufferWidth), Float32(bufferHeight), Float32(Float32(bufferWidth)/Float32(targetWidth)), Float32(Float32(bufferHeight)/Float32(targetHeight))] as [Float32],
+                                                                         length: 4 * MemoryLayout<Float32>.size,
                                                                          options: [])!
         commandEncoder?.setFragmentBuffer(uniformBuffer, offset: 0, index: 1)
         
@@ -175,24 +161,6 @@ public class PersonSegmentationHandler: CMSampleChain {
         commandBuffer?.commit()
         
         return outputTexture
-    }
-    
-    private func printPixelBuffer(_ pixelBuffer: CVPixelBuffer) {
-        CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        let bufferWidth = CVPixelBufferGetWidth(pixelBuffer)
-        let bufferHeight = CVPixelBufferGetHeight(pixelBuffer)
-        
-        let baseAddress = CVPixelBufferGetBaseAddress(pixelBuffer)
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer)
-        let buffer = baseAddress!.assumingMemoryBound(to: UInt8.self)
-        
-        for i in 0..<bufferWidth*bufferHeight {
-            if buffer[i] != 0 {
-                print(buffer[i])
-            }
-        }
-        
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
     }
 }
 
