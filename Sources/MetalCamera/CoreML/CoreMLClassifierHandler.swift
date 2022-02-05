@@ -42,10 +42,6 @@ public class CoreMLClassifierHandler: CMSampleChain {
         self.dropFrame = dropFrame
 
         resultOperation = resultType == .mask ? Mask() : AlphaBlend()
-
-        if maxClasses > randomColors.count {
-            randomColors = generateRandomColors(maxClasses)
-        }
     }
 
     private func setupPiplineState(_ colorPixelFormat: MTLPixelFormat = .bgra8Unorm, width: Int, height: Int) {

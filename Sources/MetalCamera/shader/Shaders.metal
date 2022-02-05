@@ -55,6 +55,7 @@ fragment float4 gray_fragment_render_target(Vertex vertex_data [[ stage_in ]],
     return float4(gray, gray, gray, 1.0);
 };
 
+
 typedef struct
 {
     float mixturePercent;
@@ -112,6 +113,20 @@ fragment float4 segmentation_render_target(Vertex vertex_data [[ stage_in ]],
     }
 
     return float4(0,0,0,1.0);
+};
+
+typedef struct
+{
+    uint8_t value;
+} SegmentationValue2;
+
+fragment float4 segmentation_render_target2(Vertex vertex_data [[ stage_in ]],
+                                            constant SegmentationValue2 *segmentation [[ buffer(0) ]],
+                                            constant SegmentationUniform& uniform [[ buffer(1) ]])
+
+{
+    int index = int(vertex_data.position.x) + int(vertex_data.position.y) * uniform.width;
+    return float4(segmentation[index].value/255.0,0,0,1.0);
 };
 
 typedef struct
