@@ -17,6 +17,7 @@ enum Examples: Int, CaseIterable, Identifiable {
     case MPS
     case stability
     case visionSegmentation
+    case saliency
     
     var id: String {
         return "\(self.rawValue)"
@@ -38,6 +39,8 @@ enum Examples: Int, CaseIterable, Identifiable {
             return "Camera Stability"
         case .visionSegmentation:
             return "Vision framework Segmentation"
+        case .saliency:
+            return "Saliency"
         }
     }
 }
@@ -57,6 +60,8 @@ extension Examples {
             return AnyView(StabilityCheckView())
         case .visionSegmentation:
             return AnyView(VisionSegmentationView())
+        case .saliency:
+            return AnyView(SaliencyView())
         default:
             return AnyView(Text(self.name))
         }

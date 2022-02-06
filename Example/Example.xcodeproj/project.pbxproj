@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702E49127AFDE8D00344B23 /* SaliencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702E49027AFDE8D00344B23 /* SaliencyView.swift */; };
 		077F008C26E450C1008C6607 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F008B26E450C1008C6607 /* ExampleApp.swift */; };
 		077F008E26E450C1008C6607 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F008D26E450C1008C6607 /* ExampleView.swift */; };
 		077F009026E450C3008C6607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077F008F26E450C3008C6607 /* Assets.xcassets */; };
@@ -24,7 +25,6 @@
 		077F010426E78ED1008C6607 /* LookupFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F010326E78ED1008C6607 /* LookupFilterView.swift */; };
 		077F010626E78F15008C6607 /* LookupFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F010526E78F15008C6607 /* LookupFilterViewModel.swift */; };
 		07C2E82827AD0FFC00FB24BF /* VisionSegmentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2E82727AD0FFC00FB24BF /* VisionSegmentationView.swift */; };
-		07C2E82D27AD10CE00FB24BF /* VisionSegmentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2E82C27AD10CE00FB24BF /* VisionSegmentationViewModel.swift */; };
 		07D805F8277ED14500BEA450 /* StabilityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D805F7277ED14500BEA450 /* StabilityCheckView.swift */; };
 		07D805FA277ED18500BEA450 /* StabilityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D805F9277ED18500BEA450 /* StabilityCheckViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0702E49027AFDE8D00344B23 /* SaliencyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaliencyView.swift; sourceTree = "<group>"; };
 		077F008826E450C1008C6607 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077F008B26E450C1008C6607 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
 		077F008D26E450C1008C6607 /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		077F010326E78ED1008C6607 /* LookupFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupFilterView.swift; sourceTree = "<group>"; };
 		077F010526E78F15008C6607 /* LookupFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookupFilterViewModel.swift; sourceTree = "<group>"; };
 		07C2E82727AD0FFC00FB24BF /* VisionSegmentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSegmentationView.swift; sourceTree = "<group>"; };
-		07C2E82C27AD10CE00FB24BF /* VisionSegmentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSegmentationViewModel.swift; sourceTree = "<group>"; };
 		07D805F7277ED14500BEA450 /* StabilityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabilityCheckView.swift; sourceTree = "<group>"; };
 		07D805F9277ED18500BEA450 /* StabilityCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabilityCheckViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,7 +234,7 @@
 				07D805F7277ED14500BEA450 /* StabilityCheckView.swift */,
 				07D805F9277ED18500BEA450 /* StabilityCheckViewModel.swift */,
 				07C2E82727AD0FFC00FB24BF /* VisionSegmentationView.swift */,
-				07C2E82C27AD10CE00FB24BF /* VisionSegmentationViewModel.swift */,
+				0702E49027AFDE8D00344B23 /* SaliencyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,13 +399,13 @@
 				077F00FC26E725C9008C6607 /* SegmentationSampleView.swift in Sources */,
 				07C2E82827AD0FFC00FB24BF /* VisionSegmentationView.swift in Sources */,
 				077F010626E78F15008C6607 /* LookupFilterViewModel.swift in Sources */,
+				0702E49127AFDE8D00344B23 /* SaliencyView.swift in Sources */,
 				077F010426E78ED1008C6607 /* LookupFilterView.swift in Sources */,
 				07D805F8277ED14500BEA450 /* StabilityCheckView.swift in Sources */,
 				077F00E726E461C2008C6607 /* Examples.swift in Sources */,
 				07D805FA277ED18500BEA450 /* StabilityCheckViewModel.swift in Sources */,
 				077F008C26E450C1008C6607 /* ExampleApp.swift in Sources */,
 				077F00F726E671BE008C6607 /* CameraSampleView.swift in Sources */,
-				07C2E82D27AD10CE00FB24BF /* VisionSegmentationViewModel.swift in Sources */,
 				077F00FE26E7349E008C6607 /* MPSSampleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +578,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.metalcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -600,6 +601,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = eunchul.jeon.metalcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

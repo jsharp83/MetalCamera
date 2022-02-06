@@ -128,6 +128,16 @@ fragment float4 segmentation_resize_render_target(Vertex vertex_data [[ stage_in
     return float4(segmentation[index]/255.0,0,0,1.0);
 };
 
+fragment float4 segmentation_float_resize_render_target(Vertex vertex_data [[ stage_in ]],
+                                                  constant float *segmentation [[ buffer(0) ]],
+                                                  constant SegmentationResizeUniform& uniform [[ buffer(1) ]])
+
+{
+    int index = vertex_data.position.x + vertex_data.position.y * 64;
+    return float4(segmentation[index],0,0,1.0);
+};
+
+
 typedef struct
 {
     float value;

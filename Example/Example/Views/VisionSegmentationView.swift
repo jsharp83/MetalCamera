@@ -9,21 +9,25 @@ import MetalCamera
 import SwiftUI
 
 struct VisionSegmentationView: View {
-    @ObservedObject var viewModel = VisionSegmentationViewModel()
+    let camera = try! MetalCamera(videoOrientation: .portrait, isVideoMirrored: true)
+    let segmentationHandler = PersonSegmentationHandler()
     
     var body: some View {
-        if let operation = viewModel.operationChain {
-            ZStack {
-                VideoPreview(operation: operation)
-                    .onAppear {
-                        viewModel.camera.startCapture()
-                    }
-                    .onDisappear {
-                        viewModel.camera.stopCapture()
-                    }
-            }
-        } else {
-            Text("Preparing...")
+        ZStack {
+            VideoPreview(operation: segmentationHandler)
+                .onAppear {
+                    setup()
+                    camera.startCapture()
+                }
+                .onDisappear {
+                    camera.stopCapture()
+                }
         }
+    }
+}
+
+extension VisionSegmentationView {
+    private func setup() {
+        camera-->segmentationHandler
     }
 }

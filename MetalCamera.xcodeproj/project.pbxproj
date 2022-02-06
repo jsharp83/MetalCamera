@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0735350827AFC1D300E0A7CF /* SaliencyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735350727AFC1D300E0A7CF /* SaliencyHandler.swift */; };
 		077F00EA26E4744B008C6607 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077F00E926E4744B008C6607 /* VideoPreview.swift */; };
 		077F00F426E66FC2008C6607 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 077F00F326E66FC2008C6607 /* Shaders.metal */; };
 		079ED717278EA54100E2B281 /* PersonSegmentationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0735350727AFC1D300E0A7CF /* SaliencyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaliencyHandler.swift; sourceTree = "<group>"; };
 		077F00E926E4744B008C6607 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		077F00F326E66FC2008C6607 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSegmentationHandler.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				07D805FC277ED83F00BEA450 /* TranslationHandler.swift */,
 				079ED716278EA54100E2B281 /* PersonSegmentationHandler.swift */,
+				0735350727AFC1D300E0A7CF /* SaliencyHandler.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				OBJ_57 /* CoreMLPoseNetHandler.swift in Sources */,
 				OBJ_58 /* Joint.swift in Sources */,
 				OBJ_59 /* Pose.swift in Sources */,
+				0735350827AFC1D300E0A7CF /* SaliencyHandler.swift in Sources */,
 				OBJ_60 /* PoseNetOutput.swift in Sources */,
 				OBJ_61 /* MetalCamera.swift in Sources */,
 				OBJ_62 /* MetalRenderingDevice.swift in Sources */,
@@ -448,6 +452,7 @@
 					"DEBUG=1",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,6 +479,7 @@
 					"SWIFT_PACKAGE=1",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
