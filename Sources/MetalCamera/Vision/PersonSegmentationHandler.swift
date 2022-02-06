@@ -65,15 +65,15 @@ public class PersonSegmentationHandler: CMSampleChain {
                 return
             }
                         
+            let inferenceTime = CFAbsoluteTimeGetCurrent() - startTime
+            
             let bufferWidth = CVPixelBufferGetWidth(cameraFrame)
             let bufferHeight = CVPixelBufferGetHeight(cameraFrame)
             
             guard let outputTexture = generateTexture(maskPixelBuffer, bufferWidth, bufferHeight) else {
                 return
             }
-            
-            let inferenceTime = CFAbsoluteTimeGetCurrent() - startTime
-                        
+                                    
             guard let frameTexture = frameTexture else {
                 return
             }
